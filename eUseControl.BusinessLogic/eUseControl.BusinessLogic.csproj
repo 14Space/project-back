@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\eUseControl.Domain\eUseControl.Domain.csproj" />
+    <ProjectReference Include="..\eUseControl.Helpers\eUseControl.Helpers.csproj" />
+    <ProjectReference Include="..\eUseControl.Data\eUseControl.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
