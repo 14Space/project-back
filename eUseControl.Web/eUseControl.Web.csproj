@@ -17,4 +17,9 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eUseControl.BusinessLogic\eUseControl.BusinessLogic.csproj" />
+    <ProjectReference Include="..\eUseControl.Domain\eUseControl.Domain.csproj" />
+    <ProjectReference Include="..\eUseControl.Model\eUseControl.Model.csproj" />
+  </ItemGroup>
 </Project>
