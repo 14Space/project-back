@@ -1,3 +1,5 @@
+using System;
+
 namespace eUseControl.Domain.Entities
 {
     public class Category
@@ -5,6 +7,6 @@ namespace eUseControl.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public int? ParentId { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
