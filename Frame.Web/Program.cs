@@ -10,8 +10,12 @@ builder.Services.AddControllers();
 
 // Register AppDbContext with SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
+ felciuc
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
     b => b.MigrationsAssembly("Frame.BusinessLogic")));
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+ main
 
 // Register Services
 builder.Services.AddScoped<IProductService, ProductService>();
