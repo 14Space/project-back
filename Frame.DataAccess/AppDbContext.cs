@@ -1,8 +1,7 @@
 using Frame.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
-namespace Frame.BusinessLogic
+namespace Frame.DataAccess
 {
     public class AppDbContext : DbContext
     {
@@ -30,7 +29,7 @@ namespace Frame.BusinessLogic
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Automatically applies all IEntityTypeConfiguration<T> classes from this assembly
+            // Automatically applies all IEntityTypeConfiguration<T> from this assembly
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
             base.OnModelCreating(modelBuilder);

@@ -2,7 +2,7 @@ using Frame.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Frame.BusinessLogic.Configurations
+namespace Frame.DataAccess.Configurations
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
@@ -26,13 +26,19 @@ namespace Frame.BusinessLogic.Configurations
             builder.Property(p => p.CreatedAt)
                 .HasDefaultValueSql("GETUTCDATE()");
 
-            // 1:N Product -> ProductImage (Cascade)
+            // N:1 Product -> Category  (Restrict: удаление категории невозможно, пока есть товары)
+            builder.HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // 1:N Product -> ProductImage  (Cascade: удаление товара удаляет все его картинки)
             builder.HasMany(p => p.Images)
                 .WithOne()
                 .HasForeignKey(pi => pi.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // 1:1 Product -> ProductDescription (Cascade)
+            // 1:1 Product -> ProductDescription  (Cascade)
             builder.HasOne(p => p.Description)
                 .WithOne()
                 .HasForeignKey<ProductDescription>(pd => pd.ProductId)

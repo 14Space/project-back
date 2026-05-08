@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Frame.Domain\Frame.Domain.csproj" />
     <ProjectReference Include="..\Frame.BusinessLogic\Frame.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Frame.DataAccess\Frame.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
