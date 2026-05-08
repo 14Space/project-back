@@ -1,4 +1,4 @@
-using Frame.BusinessLogic;
+using Frame.DataAccess;
 using Frame.BusinessLogic.Interfaces;
 using Frame.BusinessLogic.Services;
 using Microsoft.EntityFrameworkCore;
@@ -9,13 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Register AppDbContext with SQL Server
+// Migrations are stored in Frame.DataAccess assembly
 builder.Services.AddDbContext<AppDbContext>(options =>
- felciuc
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-    b => b.MigrationsAssembly("Frame.BusinessLogic")));
-
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
- main
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("Frame.DataAccess")));
 
 // Register Services
 builder.Services.AddScoped<IProductService, ProductService>();

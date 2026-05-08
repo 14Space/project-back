@@ -1,6 +1,7 @@
 using AutoMapper;
 using Frame.BusinessLogic.DTOs;
 using Frame.BusinessLogic.Interfaces;
+using Frame.DataAccess;
 using Frame.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
