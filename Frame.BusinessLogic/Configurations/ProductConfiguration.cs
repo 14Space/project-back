@@ -2,7 +2,7 @@ using Frame.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Frame.DataAccess.Configurations
+namespace Frame.BusinessLogic.Configurations
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
@@ -25,11 +25,6 @@ namespace Frame.DataAccess.Configurations
 
             builder.Property(p => p.CreatedAt)
                 .HasDefaultValueSql("GETUTCDATE()");
-
-            builder.HasOne(p => p.Category)
-                .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasMany(p => p.Images)
                 .WithOne()

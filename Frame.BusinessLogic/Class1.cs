@@ -1,4 +1,4 @@
-﻿namespace Frame.BusinessLogic;
+namespace Frame.BusinessLogic;
 
 public class Class1
 {

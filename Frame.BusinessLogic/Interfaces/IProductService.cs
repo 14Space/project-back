@@ -9,5 +9,6 @@ namespace Frame.BusinessLogic.Interfaces
         Task<ProductDto> CreateAsync(CreateProductDto createProductDto);
         Task<bool> UpdateAsync(int id, CreateProductDto updateProductDto);
         Task<bool> DeleteAsync(int id);
+        Task<List<ProductDto>> GetFilteredProductsAsync(ProductFilterDto filter);
     }
 }

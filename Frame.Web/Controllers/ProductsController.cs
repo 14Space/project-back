@@ -15,7 +15,6 @@ namespace Frame.Web.Controllers
             _productService = productService;
         }
 
-        // GET /api/products
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -23,7 +22,13 @@ namespace Frame.Web.Controllers
             return Ok(products);
         }
 
-        // GET /api/products/{id}
+        [HttpGet("filter")]
+        public async Task<IActionResult> GetFiltered([FromQuery] ProductFilterDto filter)
+        {
+            var products = await _productService.GetFilteredProductsAsync(filter);
+            return Ok(products);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -35,7 +40,6 @@ namespace Frame.Web.Controllers
             return Ok(product);
         }
 
-        // POST /api/products
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateProductDto createProductDto)
         {
@@ -45,7 +49,6 @@ namespace Frame.Web.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
-        // PUT /api/products/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] CreateProductDto updateProductDto)
         {
@@ -55,7 +58,6 @@ namespace Frame.Web.Controllers
             return NoContent();
         }
 
-        // DELETE /api/products/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

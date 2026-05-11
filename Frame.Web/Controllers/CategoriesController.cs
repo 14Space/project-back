@@ -15,7 +15,6 @@ namespace Frame.Web.Controllers
             _categoryService = categoryService;
         }
 
-        // GET /api/categories
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -23,7 +22,6 @@ namespace Frame.Web.Controllers
             return Ok(categories);
         }
 
-        // GET /api/categories/{id}
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -35,7 +33,6 @@ namespace Frame.Web.Controllers
             return Ok(category);
         }
 
-        // POST /api/categories
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CategoryDto categoryDto)
         {
@@ -45,7 +42,6 @@ namespace Frame.Web.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
-        // PUT /api/categories/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] CategoryDto categoryDto)
         {
@@ -55,7 +51,6 @@ namespace Frame.Web.Controllers
             return NoContent();
         }
 
-        // DELETE /api/categories/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
