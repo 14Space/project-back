@@ -1,4 +1,4 @@
-﻿namespace Frame.Domain;
+namespace Frame.Domain;
 
 public class Class1
 {

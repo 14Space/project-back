@@ -11,7 +11,6 @@ namespace Frame.BusinessLogic.Interfaces
         Task<bool> UpdateAsync(int id, CartDto cartDto);
         Task<bool> DeleteAsync(int id);
         
-        // Cart Items
         Task<CartItemDto> AddItemAsync(int cartId, CartItemDto itemDto);
         Task<bool> RemoveItemAsync(int itemId);
     }
