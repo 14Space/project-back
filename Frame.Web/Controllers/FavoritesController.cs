@@ -1,11 +1,13 @@
-using Frame.BusinessLogic.DTOs;
+﻿using Frame.BusinessLogic.DTOs;
 using Frame.BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frame.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class FavoritesController : ControllerBase
     {
         private readonly IFavoriteService _favoriteService;
@@ -16,6 +18,7 @@ namespace Frame.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var favorites = await _favoriteService.GetAllAsync();

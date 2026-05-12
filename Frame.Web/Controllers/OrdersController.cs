@@ -47,7 +47,7 @@ namespace Frame.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> GetAllOrders()
         {
             var orders = await _context.Orders

@@ -1,11 +1,13 @@
-using Frame.BusinessLogic.DTOs;
+﻿using Frame.BusinessLogic.DTOs;
 using Frame.BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frame.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class CartsController : ControllerBase
     {
         private readonly ICartService _cartService;
@@ -16,6 +18,7 @@ namespace Frame.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var carts = await _cartService.GetAllAsync();

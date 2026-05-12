@@ -1,11 +1,13 @@
-using Frame.BusinessLogic.DTOs;
+﻿using Frame.BusinessLogic.DTOs;
 using Frame.BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frame.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;

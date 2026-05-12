@@ -1,8 +1,2 @@
-namespace Frame.BusinessLogic.DTOs
-{
-    public class ProductAttributeDto
-    {
-        public int AttributeId { get; set; }
-        public string Value { get; set; } = string.Empty;
-    }
-}
+﻿// Class ProductAttributeDto moved to CreateProductDto.cs
+namespace Frame.BusinessLogic.DTOs { }
