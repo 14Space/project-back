@@ -1,4 +1,4 @@
-using Frame.DataAccess;
+п»їusing Frame.DataAccess;
 using Frame.BusinessLogic.Interfaces;
 using Frame.BusinessLogic.Services;
 using Microsoft.EntityFrameworkCore;
@@ -33,9 +33,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "")),
-            ValidateIssuer = false,
-            ValidateAudience = false
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "")),
+
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+
+            ValidateLifetime = true,
+
+            RoleClaimType = System.Security.Claims.ClaimTypes.Role
         };
     });
 
@@ -48,7 +57,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Введите JWT токен в формате: Bearer {ваш_токен}",
+        Description = "Р’РІРµРґРёС‚Рµ JWT С‚РѕРєРµРЅ РІ С„РѕСЂРјР°С‚Рµ: Bearer {РІР°С€_С‚РѕРєРµРЅ}",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,

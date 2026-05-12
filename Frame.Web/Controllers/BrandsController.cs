@@ -1,15 +1,13 @@
-using Frame.DataAccess;
+﻿using Frame.DataAccess;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Frame.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [AllowAnonymous]
+    [Authorize]
     public class BrandsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -20,12 +18,12 @@ namespace Frame.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetBrands()
         {
             var brands = await _context.Brands
                 .Select(b => new { b.Id, b.Name })
                 .ToListAsync();
-
             return Ok(brands);
         }
 
@@ -35,30 +33,25 @@ namespace Frame.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> CreateBrand([FromBody] CreateBrandDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.Name)) return BadRequest("Name is required");
-
             var brand = new Frame.Domain.Entities.Brand { Name = dto.Name };
             _context.Brands.Add(brand);
             await _context.SaveChangesAsync();
-
             return Ok(new { brand.Id, brand.Name });
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> UpdateBrand(int id, [FromBody] CreateBrandDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.Name)) return BadRequest("Name is required");
-
             var brand = await _context.Brands.FindAsync(id);
             if (brand == null) return NotFound();
-
             brand.Name = dto.Name;
             await _context.SaveChangesAsync();
-
             return Ok(new { brand.Id, brand.Name });
         }
 
@@ -68,16 +61,11 @@ namespace Frame.Web.Controllers
         {
             var brand = await _context.Brands.FindAsync(id);
             if (brand == null) return NotFound();
-
             bool isUsed = await _context.Products.AnyAsync(p => p.BrandId == id);
             if (isUsed)
-            {
                 return BadRequest("Нельзя удалить, так как данные используются в товарах");
-            }
-
             _context.Brands.Remove(brand);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
     }

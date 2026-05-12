@@ -53,7 +53,7 @@ namespace Frame.Web.Controllers
             {
                 Username = dto.Username,
                 Email = dto.Email,
-                Role = string.IsNullOrWhiteSpace(dto.Role) ? "User" : dto.Role,
+                Role = "User",
                 PasswordHash = ComputeHash(dto.Password)
             };
 
