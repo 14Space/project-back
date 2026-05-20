@@ -1,4 +1,4 @@
-﻿using Frame.DataAccess;
+using Frame.DataAccess;
 using AutoMapper;
 using Frame.BusinessLogic.DTOs;
 using Frame.BusinessLogic.Interfaces;
@@ -44,7 +44,28 @@ namespace Frame.BusinessLogic.Services
 
         public async Task<ProductDto> CreateAsync(CreateProductDto createProductDto)
         {
-            var product = _mapper.Map<Product>(createProductDto);
+            var category = await _context.Categories.FirstOrDefaultAsync(c => c.Name == createProductDto.CategoryName);
+            if (category == null)
+            {
+                category = new Category { Name = createProductDto.CategoryName };
+                _context.Categories.Add(category);
+                await _context.SaveChangesAsync();
+            }
+
+            var product = new Product
+            {
+                Name = createProductDto.Name,
+                Price = createProductDto.Price,
+                Description = createProductDto.Description ?? string.Empty,
+                CategoryId = category.Id,
+                BrandId = createProductDto.BrandId,
+                SubcategoryName = createProductDto.SubcategoryName
+            };
+
+            foreach (var imgUrl in createProductDto.Images)
+            {
+                product.Images.Add(new ProductImage { Url = imgUrl });
+            }
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();

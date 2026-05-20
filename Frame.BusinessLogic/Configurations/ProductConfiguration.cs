@@ -18,6 +18,10 @@ namespace Frame.BusinessLogic.Configurations
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
 
+            builder.Property(p => p.Description)
+                .HasMaxLength(4000)
+                .HasDefaultValue(string.Empty);
+
             builder.Property(p => p.Status)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -29,11 +33,6 @@ namespace Frame.BusinessLogic.Configurations
             builder.HasMany(p => p.Images)
                 .WithOne()
                 .HasForeignKey(pi => pi.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasOne(p => p.Description)
-                .WithOne()
-                .HasForeignKey<ProductDescription>(pd => pd.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

@@ -18,6 +18,10 @@ namespace Frame.DataAccess.Configurations
                 .HasColumnType("decimal(18,2)")
                 .IsRequired();
 
+            builder.Property(p => p.Description)
+                .HasMaxLength(4000)
+                .HasDefaultValue(string.Empty);
+
             builder.Property(p => p.Status)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -36,9 +40,9 @@ namespace Frame.DataAccess.Configurations
                 .HasForeignKey(pi => pi.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(p => p.Description)
-                .WithOne()
-                .HasForeignKey<ProductDescription>(pd => pd.ProductId)
+            builder.HasMany(p => p.AttributeValues)
+                .WithOne(av => av.Product)
+                .HasForeignKey(av => av.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
