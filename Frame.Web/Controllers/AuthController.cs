@@ -35,9 +35,43 @@ namespace Frame.Web.Controllers
 
             return Ok(new
             {
+                user.Id,
                 user.Username,
                 user.Email,
-                user.Role
+                user.Role,
+                user.LastName,
+                user.Phone,
+                user.City,
+                user.Street
+            });
+        }
+
+        [HttpPut("update")]
+        [Authorize]
+        public async Task<IActionResult> UpdateProfile(UpdateProfileDto dto)
+        {
+            var username = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null) return NotFound("User not found");
+
+            if (!string.IsNullOrEmpty(dto.Username)) user.Username = dto.Username;
+            if (dto.LastName != null) user.LastName = dto.LastName;
+            if (dto.Phone != null) user.Phone = dto.Phone;
+            if (dto.City != null) user.City = dto.City;
+            if (dto.Street != null) user.Street = dto.Street;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new AuthResponseDto
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Token = _tokenService.CreateToken(user),
+                Role = user.Role,
+                LastName = user.LastName,
+                Phone = user.Phone,
+                City = user.City,
+                Street = user.Street
             });
         }
 
@@ -62,16 +96,21 @@ namespace Frame.Web.Controllers
 
             return Ok(new AuthResponseDto
             {
+                Id = user.Id,
                 Username = user.Username,
                 Token = _tokenService.CreateToken(user),
-                Role = user.Role
+                Role = user.Role,
+                LastName = user.LastName,
+                Phone = user.Phone,
+                City = user.City,
+                Street = user.Street
             });
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username || u.Email == dto.Username);
 
             if (user == null || user.PasswordHash != ComputeHash(dto.Password))
             {
@@ -80,9 +119,14 @@ namespace Frame.Web.Controllers
 
             return Ok(new AuthResponseDto
             {
+                Id = user.Id,
                 Username = user.Username,
                 Token = _tokenService.CreateToken(user),
-                Role = user.Role
+                Role = user.Role,
+                LastName = user.LastName,
+                Phone = user.Phone,
+                City = user.City,
+                Street = user.Street
             });
         }
 

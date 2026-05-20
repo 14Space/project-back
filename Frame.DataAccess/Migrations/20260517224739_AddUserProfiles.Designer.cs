@@ -4,6 +4,7 @@ using Frame.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Frame.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260517224739_AddUserProfiles")]
+    partial class AddUserProfiles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,16 +33,11 @@ namespace Frame.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Attributes");
                 });
@@ -118,6 +116,57 @@ namespace Frame.DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Frame.Domain.Entities.CompareItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AddedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CompareItems");
+                });
+
+            modelBuilder.Entity("Frame.Domain.Entities.DescriptionAdvanced", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DescriptionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("H")
+                        .HasColumnType("int");
+
+                    b.Property<int>("L")
+                        .HasColumnType("int");
+
+                    b.Property<int>("W")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DescriptionAdvanceds");
+                });
+
             modelBuilder.Entity("Frame.Domain.Entities.Favorite", b =>
                 {
                     b.Property<int>("Id")
@@ -156,7 +205,6 @@ namespace Frame.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UserId")
@@ -181,7 +229,6 @@ namespace Frame.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
@@ -218,12 +265,8 @@ namespace Frame.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(4000)
-                        .HasColumnType("nvarchar(4000)")
-                        .HasDefaultValue("");
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -231,7 +274,6 @@ namespace Frame.DataAccess.Migrations
                         .HasColumnType("nvarchar(300)");
 
                     b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Status")
@@ -271,6 +313,34 @@ namespace Frame.DataAccess.Migrations
                     b.HasIndex("AttributeId");
 
                     b.ToTable("ProductAttributeValues");
+                });
+
+            modelBuilder.Entity("Frame.Domain.Entities.ProductDescription", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AdvancedId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdvancedId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("ProductDescriptions");
                 });
 
             modelBuilder.Entity("Frame.Domain.Entities.ProductImage", b =>
@@ -334,16 +404,6 @@ namespace Frame.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Frame.Domain.Entities.Attribute", b =>
-                {
-                    b.HasOne("Frame.Domain.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Frame.Domain.Entities.CartItem", b =>
@@ -421,6 +481,23 @@ namespace Frame.DataAccess.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Frame.Domain.Entities.ProductDescription", b =>
+                {
+                    b.HasOne("Frame.Domain.Entities.DescriptionAdvanced", "Advanced")
+                        .WithMany()
+                        .HasForeignKey("AdvancedId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Frame.Domain.Entities.Product", null)
+                        .WithOne("Description")
+                        .HasForeignKey("Frame.Domain.Entities.ProductDescription", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Advanced");
+                });
+
             modelBuilder.Entity("Frame.Domain.Entities.ProductImage", b =>
                 {
                     b.HasOne("Frame.Domain.Entities.Product", null)
@@ -448,6 +525,9 @@ namespace Frame.DataAccess.Migrations
             modelBuilder.Entity("Frame.Domain.Entities.Product", b =>
                 {
                     b.Navigation("AttributeValues");
+
+                    b.Navigation("Description")
+                        .IsRequired();
 
                     b.Navigation("Images");
                 });

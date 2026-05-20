@@ -1,11 +1,14 @@
-﻿namespace Frame.BusinessLogic.DTOs
+namespace Frame.BusinessLogic.DTOs
 {
     public class CreateProductDto
     {
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public int CategoryId { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public string CategoryName { get; set; } = string.Empty;
+        public string SubcategoryName { get; set; } = string.Empty;
         public int? BrandId { get; set; }
+        public List<string> Images { get; set; } = new();
         public List<ProductAttributeDto> Attributes { get; set; } = new();
     }
 

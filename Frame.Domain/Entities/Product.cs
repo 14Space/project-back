@@ -8,15 +8,23 @@ namespace Frame.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
+        public string Description { get; set; } = string.Empty;
         public string Status { get; set; } = "Available";
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // Category & subcategory
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
-        public List<ProductImage> Images { get; set; } = new List<ProductImage>();
-        public ProductDescription Description { get; set; } = new ProductDescription();
+        public string SubcategoryName { get; set; } = string.Empty;
+
+        // Brand
         public int? BrandId { get; set; }
         public Brand? Brand { get; set; }
-        public string? ImageUrl { get; set; }
+
+        // Images (multiple)
+        public List<ProductImage> Images { get; set; } = new List<ProductImage>();
+
+        // Specifications / filter attributes
         public ICollection<ProductAttributeValue> AttributeValues { get; set; } = new List<ProductAttributeValue>();
     }
 }

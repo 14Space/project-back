@@ -9,5 +9,9 @@ namespace Frame.Domain.Entities
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public string Role { get; set; } = "User";
+        public string? LastName { get; set; }
+        public string? Phone { get; set; }
+        public string? City { get; set; }
+        public string? Street { get; set; }
     }
 }
