@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Frame.Domain.Entities;
 using Frame.BusinessLogic.DTOs;
 
@@ -14,9 +14,11 @@ namespace Frame.BusinessLogic.Profiles
             CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name))
                 .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand != null ? src.Brand.Name : null))
+                .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(img => img.Url).ToList()))
                 .ForMember(dest => dest.Attributes, opt => opt.MapFrom(src => src.AttributeValues));
 
             CreateMap<ProductAttributeValue, ProductAttributeResponseDto>()
+                .ForMember(dest => dest.AttributeId, opt => opt.MapFrom(src => src.AttributeId))
                 .ForMember(dest => dest.AttributeName, opt => opt.MapFrom(src => src.Attribute.Name))
                 .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Value));
         }
