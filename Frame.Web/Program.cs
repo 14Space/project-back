@@ -205,105 +205,217 @@ using (var scope = app.Services.CreateScope())
         }
 
         // ─── ATTRIBUTES (filter specs) ────────────────────────────────
-        if (!context.Attributes.Any())
+        var filePath = Path.Combine(AppContext.BaseDirectory, "extracted_options.json");
+        if (!File.Exists(filePath))
         {
-            context.Attributes.AddRange(
-                // ── Общие (Компьютеры и Ноутбуки) ──
-                new Frame.Domain.Entities.Attribute { Name = "Подкатегория" },
-                new Frame.Domain.Entities.Attribute { Name = "Процессор" },
-                new Frame.Domain.Entities.Attribute { Name = "Видеокарта" },
-                new Frame.Domain.Entities.Attribute { Name = "Объём VRAM" },
-                new Frame.Domain.Entities.Attribute { Name = "Объём RAM" },
-                new Frame.Domain.Entities.Attribute { Name = "Тип RAM" },
-                new Frame.Domain.Entities.Attribute { Name = "Объём SSD" },
-                new Frame.Domain.Entities.Attribute { Name = "Объём HDD" },
-                new Frame.Domain.Entities.Attribute { Name = "Операционная система" },
-
-                // ── Процессоры ──
-                new Frame.Domain.Entities.Attribute { Name = "Сокет" },
-                new Frame.Domain.Entities.Attribute { Name = "Ядра" },
-                new Frame.Domain.Entities.Attribute { Name = "Потоки" },
-                new Frame.Domain.Entities.Attribute { Name = "Базовая частота (ГГц)" },
-                new Frame.Domain.Entities.Attribute { Name = "Turbo частота (ГГц)" },
-                new Frame.Domain.Entities.Attribute { Name = "Кэш L3 (МБ)" },
-                new Frame.Domain.Entities.Attribute { Name = "TDP (Вт)" },
-                new Frame.Domain.Entities.Attribute { Name = "Встроенная графика" },
-                new Frame.Domain.Entities.Attribute { Name = "Поддержка ECC" },
-
-                // ── Видеокарты ──
-                new Frame.Domain.Entities.Attribute { Name = "Чип" },
-                new Frame.Domain.Entities.Attribute { Name = "Тип памяти" },
-                new Frame.Domain.Entities.Attribute { Name = "Шина памяти (бит)" },
-                new Frame.Domain.Entities.Attribute { Name = "Частота GPU (МГц)" },
-                new Frame.Domain.Entities.Attribute { Name = "Boost частота (МГц)" },
-                new Frame.Domain.Entities.Attribute { Name = "Количество разъёмов питания" },
-                new Frame.Domain.Entities.Attribute { Name = "Рекомендуемый БП (Вт)" },
-
-                // ── Материнские платы ──
-                new Frame.Domain.Entities.Attribute { Name = "Форм-фактор" },
-                new Frame.Domain.Entities.Attribute { Name = "Чипсет" },
-                new Frame.Domain.Entities.Attribute { Name = "Слоты RAM" },
-                new Frame.Domain.Entities.Attribute { Name = "Макс. RAM (ГБ)" },
-                new Frame.Domain.Entities.Attribute { Name = "Слоты PCIe x16" },
-                new Frame.Domain.Entities.Attribute { Name = "Порты M.2" },
-                new Frame.Domain.Entities.Attribute { Name = "Порты SATA" },
-                new Frame.Domain.Entities.Attribute { Name = "Wi-Fi" },
-                new Frame.Domain.Entities.Attribute { Name = "Bluetooth" },
-
-                // ── Оперативная память ──
-                new Frame.Domain.Entities.Attribute { Name = "Объём модуля (ГБ)" },
-                new Frame.Domain.Entities.Attribute { Name = "Количество модулей" },
-                new Frame.Domain.Entities.Attribute { Name = "Частота (МГц)" },
-                new Frame.Domain.Entities.Attribute { Name = "Тайминги" },
-                new Frame.Domain.Entities.Attribute { Name = "Напряжение (В)" },
-                new Frame.Domain.Entities.Attribute { Name = "RGB подсветка" },
-
-                // ── Дисковые накопители ──
-                new Frame.Domain.Entities.Attribute { Name = "Тип накопителя" },
-                new Frame.Domain.Entities.Attribute { Name = "Объём (ГБ)" },
-                new Frame.Domain.Entities.Attribute { Name = "Интерфейс" },
-                new Frame.Domain.Entities.Attribute { Name = "Скорость чтения (МБ/с)" },
-                new Frame.Domain.Entities.Attribute { Name = "Скорость записи (МБ/с)" },
-                new Frame.Domain.Entities.Attribute { Name = "NAND тип" },
-                new Frame.Domain.Entities.Attribute { Name = "Скорость (об/мин)" },
-
-                // ── Корпуса ──
-                new Frame.Domain.Entities.Attribute { Name = "Тип корпуса" },
-                new Frame.Domain.Entities.Attribute { Name = "Поддерживаемые форм-факторы" },
-                new Frame.Domain.Entities.Attribute { Name = "Макс. длина GPU (мм)" },
-                new Frame.Domain.Entities.Attribute { Name = "Макс. высота CPU кулера (мм)" },
-                new Frame.Domain.Entities.Attribute { Name = "Отсеки 2.5\" / 3.5\"" },
-                new Frame.Domain.Entities.Attribute { Name = "Место под 360мм радиатор" },
-                new Frame.Domain.Entities.Attribute { Name = "Цвет" },
-                new Frame.Domain.Entities.Attribute { Name = "Боковая панель" },
-
-                // ── Системы охлаждения ──
-                new Frame.Domain.Entities.Attribute { Name = "Тип охлаждения" },
-                new Frame.Domain.Entities.Attribute { Name = "Размер радиатора (мм)" },
-                new Frame.Domain.Entities.Attribute { Name = "Макс. TDP (Вт)" },
-                new Frame.Domain.Entities.Attribute { Name = "Совместимые сокеты" },
-                new Frame.Domain.Entities.Attribute { Name = "Уровень шума (дБ)" },
-                new Frame.Domain.Entities.Attribute { Name = "Скорость вентилятора (об/мин)" },
-
-                // ── Блоки питания ──
-                new Frame.Domain.Entities.Attribute { Name = "Мощность (Вт)" },
-                new Frame.Domain.Entities.Attribute { Name = "Сертификат 80 PLUS" },
-                new Frame.Domain.Entities.Attribute { Name = "Модульность" },
-                new Frame.Domain.Entities.Attribute { Name = "Размер вентилятора БП (мм)" },
-                new Frame.Domain.Entities.Attribute { Name = "Защита" },
-
-                // ── Ноутбуки ──
-                new Frame.Domain.Entities.Attribute { Name = "Диагональ экрана (дюйм)" },
-                new Frame.Domain.Entities.Attribute { Name = "Разрешение экрана" },
-                new Frame.Domain.Entities.Attribute { Name = "Частота обновления (Гц)" },
-                new Frame.Domain.Entities.Attribute { Name = "Тип матрицы" },
-                new Frame.Domain.Entities.Attribute { Name = "Время работы от батареи (ч)" },
-                new Frame.Domain.Entities.Attribute { Name = "Вес (кг)" },
-                new Frame.Domain.Entities.Attribute { Name = "USB-C / Thunderbolt" }
-            );
+            filePath = Path.Combine(Directory.GetCurrentDirectory(), "extracted_options.json");
+        }
+        if (!File.Exists(filePath))
+        {
+            filePath = @"C:\project\project-back\Frame.Web\extracted_options.json";
         }
 
-        context.SaveChanges();
+        if (File.Exists(filePath))
+        {
+            var jsonStr = File.ReadAllText(filePath);
+            using var doc = System.Text.Json.JsonDocument.Parse(jsonStr);
+            
+            // First save categories to make sure they have IDs
+            context.SaveChanges();
+            var dbCategories = context.Categories.ToList();
+            
+            foreach (var categoryProp in doc.RootElement.EnumerateObject())
+            {
+                var categoryName = categoryProp.Name;
+                var dbCat = dbCategories.FirstOrDefault(c => c.Name.Equals(categoryName, StringComparison.OrdinalIgnoreCase));
+                if (dbCat == null) continue;
+                
+                foreach (var filterObj in categoryProp.Value.EnumerateArray())
+                {
+                    var title = filterObj.GetProperty("title").GetString();
+                    // Skip only internal price filter key; all other titles (including Подкатегории, Производители) are seeded
+                    if (string.IsNullOrEmpty(title) || title == "filters.price") continue;
+                    
+                    var optionsElement = filterObj.GetProperty("options");
+                    var optionsList = new List<string>();
+                    foreach (var opt in optionsElement.EnumerateArray())
+                    {
+                        var val = opt.GetString();
+                        if (!string.IsNullOrEmpty(val)) optionsList.Add(val);
+                    }
+                    
+                    // Skip filters with no options
+                    if (optionsList.Count == 0) continue;
+                    
+                    var serializedOptions = System.Text.Json.JsonSerializer.Serialize(optionsList);
+                    
+                    // Check if attribute already exists for this category
+                    var existingAttr = context.Attributes.FirstOrDefault(a => a.CategoryId == dbCat.Id && a.Name == title);
+                    if (existingAttr == null)
+                    {
+                        // Check if there is a global attribute with the same name that we can migrate
+                        var globalAttr = context.Attributes.FirstOrDefault(a => a.CategoryId == null && a.Name == title);
+                        if (globalAttr != null)
+                        {
+                            globalAttr.CategoryId = dbCat.Id;
+                            globalAttr.Options = serializedOptions;
+                        }
+                        else
+                        {
+                            context.Attributes.Add(new Frame.Domain.Entities.Attribute
+                            {
+                                Name = title,
+                                CategoryId = dbCat.Id,
+                                Options = serializedOptions
+                            });
+                        }
+                    }
+                    else
+                    {
+                        // Always update options from the source of truth (extracted_options.json)
+                        existingAttr.Options = serializedOptions;
+                    }
+                }
+            }
+            
+            // Clean up any remaining attributes with null CategoryId that are not used by any products
+            var unusedGlobalAttrs = context.Attributes
+                .Where(a => a.CategoryId == null)
+                .ToList();
+            foreach (var attr in unusedGlobalAttrs)
+            {
+                bool isUsed = context.ProductAttributeValues.Any(pav => pav.AttributeId == attr.Id);
+                if (!isUsed)
+                {
+                    context.Attributes.Remove(attr);
+                }
+            }
+            
+            context.SaveChanges();
+        }
+
+        // Seeding 5 Computers
+        var pcCategory = context.Categories.FirstOrDefault(c => c.Name == "Компьютеры");
+        if (pcCategory != null)
+        {
+            var brandAsus = context.Brands.FirstOrDefault(b => b.Name == "ASUS");
+            var brandMsi = context.Brands.FirstOrDefault(b => b.Name == "MSI");
+            var brandHp = context.Brands.FirstOrDefault(b => b.Name == "HP");
+            var brandLenovo = context.Brands.FirstOrDefault(b => b.Name == "Lenovo");
+            var brandApple = context.Brands.FirstOrDefault(b => b.Name == "Apple");
+
+            var pcAttributes = context.Attributes.Where(a => a.CategoryId == pcCategory.Id).ToList();
+
+            var attrSubcat = pcAttributes.FirstOrDefault(a => a.Name == "Подкатегории");
+            var attrCpu = pcAttributes.FirstOrDefault(a => a.Name == "Процессор");
+            var attrGpu = pcAttributes.FirstOrDefault(a => a.Name == "Видеокарта");
+            var attrGpuRam = pcAttributes.FirstOrDefault(a => a.Name == "Объём памяти видеоадаптера");
+            var attrRam = pcAttributes.FirstOrDefault(a => a.Name == "Объём оперативной памяти");
+            var attrRamType = pcAttributes.FirstOrDefault(a => a.Name == "Тип оперативной памяти");
+            var attrSsd = pcAttributes.FirstOrDefault(a => a.Name == "Объём SSD");
+            var attrHdd = pcAttributes.FirstOrDefault(a => a.Name == "Обьём HDD");
+            var attrOs = pcAttributes.FirstOrDefault(a => a.Name == "Предустановленная ОС");
+
+            var attrValues = new List<Frame.Domain.Entities.ProductAttributeValue>();
+
+            void AddValue(Frame.Domain.Entities.Product p, Frame.Domain.Entities.Attribute? attr, string val)
+            {
+                if (attr != null)
+                {
+                    attrValues.Add(new Frame.Domain.Entities.ProductAttributeValue
+                    {
+                        ProductId = p.Id,
+                        AttributeId = attr.Id,
+                        Value = val
+                    });
+                }
+            }
+
+            var seedProducts = new List<(string Name, decimal Price, string Description, string Subcat, int? BrandId, string Img, Action<Frame.Domain.Entities.Product> AddSpecs)>
+            {
+                ("ASUS ROG Strix GA35 Ultimate", 150000.00m, "Мощный игровой компьютер ASUS ROG Strix GA35 с процессором Intel Ultra 9 и видеокартой RTX 5090.", "Игровые", brandAsus?.Id, "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=600&q=80", p => {
+                    AddValue(p, attrSubcat, "Игровые");
+                    AddValue(p, attrCpu, "Intel Core Ultra 9 2xx");
+                    AddValue(p, attrGpu, "NVIDIA GeForce RTX 5090");
+                    AddValue(p, attrGpuRam, "24 ГБ и более");
+                    AddValue(p, attrRam, "64 ГБ");
+                    AddValue(p, attrRamType, "DDR5");
+                    AddValue(p, attrSsd, "2000-4000 ГБ");
+                    AddValue(p, attrHdd, "2000 ГБ");
+                    AddValue(p, attrOs, "Windows 11");
+                }),
+                ("MSI Infinite X2 Gamer", 75000.00m, "Сбалансированный игровой ПК MSI Infinite X2 на базе Ryzen 7 и видеокарты RTX 5070.", "Игровые", brandMsi?.Id, "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80", p => {
+                    AddValue(p, attrSubcat, "Игровые");
+                    AddValue(p, attrCpu, "AMD Ryzen 7 9xxx");
+                    AddValue(p, attrGpu, "NVIDIA GeForce RTX 5070");
+                    AddValue(p, attrGpuRam, "12 ГБ");
+                    AddValue(p, attrRam, "32 ГБ");
+                    AddValue(p, attrRamType, "DDR5");
+                    AddValue(p, attrSsd, "960-1024 ГБ");
+                    AddValue(p, attrHdd, "1000 ГБ");
+                    AddValue(p, attrOs, "Windows 11");
+                }),
+                ("HP ProTower 400 G9 Workstation", 45000.00m, "Надежная рабочая станция HP ProTower для офисных задач, программирования и работы с данными.", "Рабочие станции", brandHp?.Id, "https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?auto=format&fit=crop&w=600&q=80", p => {
+                    AddValue(p, attrSubcat, "Рабочие станции");
+                    AddValue(p, attrCpu, "Intel Core Ultra 5 2xx");
+                    AddValue(p, attrGpu, "NVIDIA GeForce RTX 5050");
+                    AddValue(p, attrGpuRam, "8 ГБ");
+                    AddValue(p, attrRam, "16 ГБ");
+                    AddValue(p, attrRamType, "DDR4");
+                    AddValue(p, attrSsd, "480-512 ГБ");
+                    AddValue(p, attrHdd, "500 ГБ");
+                    AddValue(p, attrOs, "Windows 11");
+                }),
+                ("Lenovo IdeaCentre Mini Gen 8", 35000.00m, "Сверхкомпактный мини-ПК Lenovo IdeaCentre Mini Gen 8 для экономии рабочего пространства.", "Мини-ПК", brandLenovo?.Id, "https://images.unsplash.com/photo-1600541519401-44712e41ef34?auto=format&fit=crop&w=600&q=80", p => {
+                    AddValue(p, attrSubcat, "Мини-ПК");
+                    AddValue(p, attrCpu, "AMD Ryzen 5 9xxx");
+                    AddValue(p, attrGpu, "AMD Radeon RX 9060 XT");
+                    AddValue(p, attrGpuRam, "8 ГБ");
+                    AddValue(p, attrRam, "16 ГБ");
+                    AddValue(p, attrRamType, "DDR5");
+                    AddValue(p, attrSsd, "480-512 ГБ");
+                    AddValue(p, attrHdd, "500 ГБ");
+                    AddValue(p, attrOs, "Linux");
+                }),
+                ("Apple Mac Studio M4 Max", 220000.00m, "Компактный суперкомпьютер Apple Mac Studio M4 Max для профессиональной работы со звуком, видео и графикой.", "Моноблоки", brandApple?.Id, "https://images.unsplash.com/photo-1636408807362-a6195d3dd4de?auto=format&fit=crop&w=600&q=80", p => {
+                    AddValue(p, attrSubcat, "Моноблоки");
+                    AddValue(p, attrCpu, "Apple M4 Max");
+                    AddValue(p, attrGpu, "NVIDIA RTX PRO");
+                    AddValue(p, attrGpuRam, "24 ГБ и более");
+                    AddValue(p, attrRam, "48 ГБ");
+                    AddValue(p, attrRamType, "DDR5");
+                    AddValue(p, attrSsd, "2000-4000 ГБ");
+                    AddValue(p, attrOs, "Mac OS");
+                })
+            };
+
+            foreach (var seed in seedProducts)
+            {
+                if (!context.Products.Any(p => p.Name == seed.Name && p.CategoryId == pcCategory.Id))
+                {
+                    var product = new Frame.Domain.Entities.Product
+                    {
+                        Name = seed.Name,
+                        Price = seed.Price,
+                        Description = seed.Description,
+                        CategoryId = pcCategory.Id,
+                        SubcategoryName = seed.Subcat,
+                        BrandId = seed.BrandId,
+                        Images = new List<Frame.Domain.Entities.ProductImage> { new Frame.Domain.Entities.ProductImage { Url = seed.Img } }
+                    };
+                    context.Products.Add(product);
+                    context.SaveChanges(); // Save to generate product.Id
+
+                    seed.AddSpecs(product);
+                }
+            }
+
+            if (attrValues.Count > 0)
+            {
+                context.ProductAttributeValues.AddRange(attrValues);
+                context.SaveChanges();
+            }
+        }
     }
     catch (Exception ex)
     {

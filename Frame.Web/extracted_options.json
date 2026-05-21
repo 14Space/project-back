@@ -1,0 +1,1431 @@
+{
+  "Компьютеры": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Игровые",
+        "Мини-ПК",
+        "Моноблоки",
+        "Рабочие станции"
+      ]
+    },
+    {
+      "title": "Процессор",
+      "options": [
+        "Intel (все модели)",
+        "AMD (все модели)",
+        "Apple (все модели)",
+        "Apple M4",
+        "Apple M4 Pro",
+        "Apple M4 Max",
+        "Intel Core Ultra 9 2xx",
+        "Intel Core Ultra 7 2xx",
+        "Intel Core Ultra 5 2xx",
+        "Intel Xeon",
+        "AMD Ryzen 9 9xxx",
+        "AMD Ryzen 7 9xxx",
+        "AMD Ryzen 5 9xxx",
+        "AMD Ryzen AI 3xx",
+        "AMD Threadripper",
+        "AMD EPYC"
+      ]
+    },
+    {
+      "title": "Видеокарта",
+      "options": [
+        "NVIDIA GeForce RTX 5090",
+        "NVIDIA GeForce RTX 5080",
+        "NVIDIA GeForce RTX 5070 Ti",
+        "NVIDIA GeForce RTX 5070",
+        "NVIDIA GeForce RTX 5060 Ti",
+        "NVIDIA GeForce RTX 5060",
+        "NVIDIA GeForce RTX 5050",
+        "NVIDIA RTX PRO",
+        "AMD Radeon RX 9070 XT",
+        "AMD Radeon RX 9070",
+        "AMD Radeon RX 9060 XT"
+      ]
+    },
+    {
+      "title": "Объём памяти видеоадаптера",
+      "options": [
+        "24 ГБ и более",
+        "20 ГБ",
+        "16 ГБ",
+        "12 ГБ",
+        "10 ГБ",
+        "8 ГБ",
+        "6 ГБ"
+      ]
+    },
+    {
+      "title": "Объём оперативной памяти",
+      "options": [
+        "128 ГБ и более",
+        "96 ГБ",
+        "64 ГБ",
+        "48 ГБ",
+        "32 ГБ",
+        "24 ГБ",
+        "16 ГБ"
+      ]
+    },
+    {
+      "title": "Тип оперативной памяти",
+      "options": [
+        "DDR5",
+        "DDR4"
+      ]
+    },
+    {
+      "title": "Объём SSD",
+      "options": [
+        "4000 ГБ и более",
+        "2000-4000 ГБ",
+        "960-1024 ГБ",
+        "480-512 ГБ",
+        "240-256 ГБ"
+      ]
+    },
+    {
+      "title": "Обьём HDD",
+      "options": [
+        "3000 ГБ и более",
+        "2000 ГБ",
+        "1000 ГБ",
+        "500 ГБ"
+      ]
+    },
+    {
+      "title": "Предустановленная ОС",
+      "options": [
+        "Windows 11",
+        "Mac OS",
+        "Linux",
+        "Без ОС"
+      ]
+    }
+  ],
+  "Ноутбуки": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Игровые",
+        "Для учёбы",
+        "MacBook"
+      ]
+    },
+    {
+      "title": "Производители",
+      "options": [
+        "Apple",
+        "ASUS",
+        "Lenovo"
+      ]
+    },
+    {
+      "title": "Процессор",
+      "options": [
+        "Intel (все модели)",
+        "AMD (все модели)",
+        "Apple (все модели)",
+        "Apple M5",
+        "Apple M5 Pro",
+        "Apple M5 Max",
+        "Apple A18 Pro",
+        "Intel Core Ultra 9 Series 3",
+        "Intel Core Ultra 7 Series 3",
+        "AMD Ryzen 9 9xxx",
+        "AMD Ryzen 7 9xxx",
+        "AMD Ryzen AI Max",
+        "AMD Ryzen AI 9 4xx",
+        "AMD Ryzen AI 7 4xx",
+        "AMD Ryzen AI 5 4xx"
+      ]
+    },
+    {
+      "title": "Видеокарта",
+      "options": [
+        "NVIDIA GeForce RTX 5090",
+        "NVIDIA GeForce RTX 5080",
+        "NVIDIA GeForce RTX 5070 Ti",
+        "NVIDIA GeForce RTX 5070",
+        "NVIDIA GeForce RTX 5060",
+        "NVIDIA GeForce RTX 5050",
+        "Интегрированная"
+      ]
+    },
+    {
+      "title": "Объём памяти видеоадаптера",
+      "options": [
+        "24 ГБ и более",
+        "16 ГБ",
+        "12 ГБ",
+        "10 ГБ",
+        "8 ГБ",
+        "6 ГБ",
+        "4 ГБ"
+      ]
+    },
+    {
+      "title": "Диагональ экрана",
+      "options": [
+        "18\" и более",
+        "17\"",
+        "16\"",
+        "15\"",
+        "14\"",
+        "13\""
+      ]
+    },
+    {
+      "title": "Разрешение экрана",
+      "options": [
+        "4K (3840x2160)",
+        "QHD+ (2560x1600)",
+        "QHD (2560x1440)",
+        "FHD+ (1920x1200)",
+        "FHD (1920x1080)"
+      ]
+    },
+    {
+      "title": "Тип матрицы",
+      "options": [
+        "OLED",
+        "IPS",
+        "Mini LED"
+      ]
+    },
+    {
+      "title": "Частота обновления экрана",
+      "options": [
+        "240 Гц",
+        "165 Гц",
+        "144 Гц",
+        "120 Гц",
+        "60 Гц"
+      ]
+    },
+    {
+      "title": "Объём оперативной памяти",
+      "options": [
+        "128 ГБ и более",
+        "96 ГБ",
+        "64 ГБ",
+        "48 ГБ",
+        "32 ГБ",
+        "24 ГБ",
+        "16 ГБ",
+        "8 ГБ"
+      ]
+    },
+    {
+      "title": "Тип оперативной памяти",
+      "options": [
+        "DDR5",
+        "DDR4"
+      ]
+    },
+    {
+      "title": "Объём SSD",
+      "options": [
+        "2000 ГБ и более",
+        "960-1024 ГБ",
+        "480-512 ГБ",
+        "240-256 ГБ"
+      ]
+    },
+    {
+      "title": "Предустановленная ОС",
+      "options": [
+        "Windows 11",
+        "macOS",
+        "Linux",
+        "Chrome OS",
+        "Без ОС"
+      ]
+    },
+    {
+      "title": "Масса",
+      "options": [
+        "до 1.5 кг",
+        "1.5 - 2 кг",
+        "2 - 2.5 кг",
+        "более 2.5 кг"
+      ]
+    }
+  ],
+  "Процессоры": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Процессоры AMD с 3D V-Cache",
+        "Производительная iGPU",
+        "Процессор для игровых ПК",
+        "Процессор для рабочих станций"
+      ]
+    },
+    {
+      "title": "Марка процессора",
+      "options": [
+        "Все AMD",
+        "Все Intel",
+        "Core Ultra 9 2xx",
+        "Core Ultra 7 2xx",
+        "Core Ultra 5 2xx",
+        "Intel Xeon",
+        "Ryzen 9 9xxx",
+        "Ryzen 7 9xxx",
+        "Ryzen 5 9xxx",
+        "Ryzen 7 8xxx",
+        "Ryzen 5 8xxx",
+        "Ryzen Threadripper"
+      ]
+    },
+    {
+      "title": "Тип разъема",
+      "options": [
+        "Socket 1851",
+        "Socket 1700",
+        "Socket 1200",
+        "Socket 1151-V2",
+        "Socket AM5",
+        "Socket sTR5",
+        "Socket sTRX4",
+        "Socket sWRX8"
+      ]
+    },
+    {
+      "title": "Общее количество ядер",
+      "options": [
+        "64 и более",
+        "32",
+        "24",
+        "20",
+        "16",
+        "14",
+        "12",
+        "10",
+        "8",
+        "6"
+      ]
+    },
+    {
+      "title": "Интегрированная видеокарта",
+      "options": [
+        "AMD Radeon 780M/760M/740M",
+        "AMD Radeon Graphics",
+        "AMD Radeon Vega",
+        "AMD Radeon R7",
+        "AMD Radeon R5",
+        "Intel Graphics",
+        "Intel HD Graphics 7xx",
+        "Intel HD Graphics 6xx",
+        "нет"
+      ]
+    },
+    {
+      "title": "Кэш-память третьего уровня",
+      "options": [
+        "256 МБ и более",
+        "128 МБ",
+        "96 МБ",
+        "64 МБ",
+        "32-36 МБ",
+        "20-30 МБ",
+        "16-19 МБ",
+        "15 МБ и менее"
+      ]
+    },
+    {
+      "title": "Модельный год",
+      "options": [
+        "2026",
+        "2025",
+        "2024",
+        "более ранние"
+      ]
+    },
+    {
+      "title": "Базовое тепловыделение TDP",
+      "options": [
+        "49 Вт и менее",
+        "50-69 Вт",
+        "70-94 Вт",
+        "95-119 Вт",
+        "120 Вт и более"
+      ]
+    },
+    {
+      "title": "Комплектация",
+      "options": [
+        "Box",
+        "Tray"
+      ]
+    }
+  ],
+  "Видеокарты": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Игровая видеокарта NVIDIA",
+        "Игровая видеокарта AMD",
+        "Профессиональная видеокарта"
+      ]
+    },
+    {
+      "title": "GPU",
+      "options": [
+        "Все AMD",
+        "Все Nvidia",
+        "Nvidia GeForce RTX 5090",
+        "Nvidia GeForce RTX 5080",
+        "Nvidia GeForce RTX 5070 Ti",
+        "Nvidia GeForce RTX 5070",
+        "Nvidia GeForce RTX 5060 Ti",
+        "Nvidia GeForce RTX 5060",
+        "Nvidia GeForce RTX 5050",
+        "NVIDIA RTX 6000 Ada",
+        "NVIDIA RTX 5880 Ada",
+        "NVIDIA RTX 5000 Ada",
+        "NVIDIA RTX 4500 Ada",
+        "Radeon RX 9070 XT",
+        "Radeon RX 9070",
+        "Radeon RX 9060 XT",
+        "Radeon RX 9060",
+        "Radeon Pro W7700",
+        "Radeon Pro W7500"
+      ]
+    },
+    {
+      "title": "Объем памяти",
+      "options": [
+        "48 ГБ и более",
+        "32 ГБ",
+        "24 ГБ",
+        "20 ГБ",
+        "16 ГБ",
+        "12 ГБ",
+        "10 ГБ",
+        "8 ГБ",
+        "6 ГБ",
+        "4 ГБ",
+        "2 ГБ"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "ASUS",
+        "GIGABYTE",
+        "INNO3D",
+        "MSI",
+        "Palit",
+        "PNY",
+        "PowerColor",
+        "Sapphire",
+        "XFX",
+        "Zotac",
+        "Acer",
+        "AFOX",
+        "AMD",
+        "ARKTEK",
+        "ASRock",
+        "Biostar",
+        "Colorful",
+        "Dell",
+        "EVGA",
+        "Gainward",
+        "Golden Memory",
+        "HP",
+        "Intel",
+        "KFA2",
+        "Lenovo",
+        "Manli",
+        "Maxsun",
+        "NVIDIA",
+        "Sparkle"
+      ]
+    },
+    {
+      "title": "Шина памяти",
+      "options": [
+        "512 бит и более",
+        "384 бит",
+        "352 бит",
+        "160 бит",
+        "320 бит",
+        "256 бит",
+        "192 бит",
+        "128 бит",
+        "64 бит"
+      ]
+    },
+    {
+      "title": "Тип памяти",
+      "options": [
+        "GDDR7",
+        "GDDR6X",
+        "GDDR6",
+        "GDDR5X",
+        "GDDR5",
+        "HBM2"
+      ]
+    },
+    {
+      "title": "Длина",
+      "options": [
+        "149 мм и менее",
+        "150-174 мм",
+        "175-199 мм",
+        "200-229 мм",
+        "230-249 мм",
+        "250-269 мм",
+        "270-279 мм",
+        "280-299 мм",
+        "300-319 мм",
+        "320 мм и более"
+      ]
+    }
+  ],
+  "Материнские платы": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Материнские платы для AMD",
+        "Материнские платы для Intel",
+        "Материнская плата с Wi-Fi"
+      ]
+    },
+    {
+      "title": "Чипсет",
+      "options": [
+        "Intel Z890",
+        "Intel B860",
+        "Intel H810",
+        "Intel W790",
+        "AMD X870E",
+        "AMD X870",
+        "AMD B850",
+        "AMD B840",
+        "AMD X670E",
+        "AMD X670",
+        "AMD B650E",
+        "AMD B650",
+        "AMD TRX50"
+      ]
+    },
+    {
+      "title": "Тип разъема CPU",
+      "options": [
+        "Intel Socket 1851",
+        "Intel Socket 1700",
+        "Intel Socket 1200",
+        "Intel Socket 1151-V2",
+        "AMD Socket AM5",
+        "AMD Socket sTR5",
+        "AMD Socket sTR4",
+        "AMD Socket sWRX8"
+      ]
+    },
+    {
+      "title": "Форм-фактор",
+      "options": [
+        "ATX",
+        "microATX",
+        "Mini-ITX",
+        "Thin Mini-ITX",
+        "E-ATX, XL-ATX"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "ASRock",
+        "ASUS",
+        "Biostar",
+        "Colorful",
+        "GIGABYTE",
+        "HUANANZHI",
+        "Maxsun",
+        "MSI",
+        "NZXT",
+        "Sapphire"
+      ]
+    },
+    {
+      "title": "Видеоинтерфейс",
+      "options": [
+        "PCI-E 5.0",
+        "PCI-E 4.0",
+        "PCI-E 3.0"
+      ]
+    },
+    {
+      "title": "Тип поддерживаемой памяти",
+      "options": [
+        "DDR5",
+        "DDR4"
+      ]
+    },
+    {
+      "title": "Адаптер W-Fi",
+      "options": [
+        "802.11be (Wi-Fi 7)",
+        "802.11ax (Wi-Fi 6E)",
+        "802.11ax (Wi-Fi 6)",
+        "802.11ac (Wi-Fi 5)"
+      ]
+    },
+    {
+      "title": "Версия интерфейса M.2",
+      "options": [
+        "PCI-E 5.0",
+        "PCI-E 4.0",
+        "PCI-E 3.0"
+      ]
+    },
+    {
+      "title": "Количество разъемов M.2",
+      "options": [
+        "3 и более",
+        "2",
+        "1"
+      ]
+    },
+    {
+      "title": "Количество слотов памяти",
+      "options": [
+        "2",
+        "4",
+        "8 и более"
+      ]
+    }
+  ],
+  "Оперативная память": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Комплект 2x16 ГБ DDR5",
+        "Комплект 2x8 ГБ DDR5",
+        "DDR5 6000 МТ/с CL30"
+      ]
+    },
+    {
+      "title": "Объем",
+      "options": [
+        "192 ГБ и более",
+        "128 ГБ",
+        "96 ГБ",
+        "64 ГБ",
+        "48 ГБ",
+        "32 ГБ",
+        "24 ГБ",
+        "16 ГБ",
+        "12 ГБ",
+        "8 ГБ"
+      ]
+    },
+    {
+      "title": "Частота",
+      "options": [
+        "8600 МТ/с и более",
+        "8400 МТ/с",
+        "8200 МТ/с",
+        "8000 МТ/с",
+        "7800 МТ/с",
+        "7600 МТ/с",
+        "7200 МТ/с",
+        "7000 МТ/с",
+        "6800 МТ/с",
+        "6600 МТ/с",
+        "6400 МТ/с",
+        "6200 МТ/с",
+        "6000 МТ/с",
+        "5600 МТ/с",
+        "5200 МТ/с",
+        "4800 МТ/с",
+        "4600 МТ/с",
+        "4400 МТ/с",
+        "4266 МТ/с",
+        "4133 МТ/с",
+        "4000 МТ/с",
+        "3733 МТ/с",
+        "3600 МТ/с",
+        "3333 МТ/с",
+        "3200 МТ/с",
+        "3000 МТ/с",
+        "2933 МТ/с",
+        "2800 МТ/с",
+        "2666 МТ/с",
+        "2400 МТ/с",
+        "2133 МТ/с",
+        "1866 МТ/с",
+        "1600 МТ/с",
+        "1333 МТ/с",
+        "1066 МТ/с",
+        "800 МТ/с и менее"
+      ]
+    },
+    {
+      "title": "Тип",
+      "options": [
+        "DDR5"
+      ]
+    },
+    {
+      "title": "Количество планок",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "8"
+      ]
+    },
+    {
+      "title": "Тайминги (латентность)",
+      "options": [
+        "CL52",
+        "CL48",
+        "CL46",
+        "CL42",
+        "CL40",
+        "CL38",
+        "CL36",
+        "CL34",
+        "CL32",
+        "CL30",
+        "CL28",
+        "CL26",
+        "CL22",
+        "CL21",
+        "CL20",
+        "CL19",
+        "CL18",
+        "CL17",
+        "CL16",
+        "CL15",
+        "CL14",
+        "CL13",
+        "CL12",
+        "CL11",
+        "CL10",
+        "CL9 и менее"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "Corsair",
+        "Crucial",
+        "G.Skill",
+        "GOODRAM",
+        "Kingston",
+        "Kingston FURY",
+        "PATRIOT",
+        "Prologix",
+        "Samsung",
+        "SK hynix",
+        "A-Tech",
+        "Acer",
+        "ADATA",
+        "AFOX",
+        "AGI",
+        "AMD",
+        "Apacer",
+        "Apple",
+        "ARKTEK",
+        "ATRIA",
+        "Axiom",
+        "Dahua Technology",
+        "DATO",
+        "Dell",
+        "Elixir",
+        "Exceleram",
+        "Geil",
+        "Golden Memory",
+        "GTL",
+        "Hiksemi",
+        "HP",
+        "HyperX",
+        "Integral",
+        "INTELIGENTES",
+        "JUHOR",
+        "Klevv",
+        "Lexar",
+        "Micron",
+        "Mushkin",
+        "Nanya",
+        "Netac",
+        "OCPC",
+        "OLOy",
+        "PNY",
+        "Ramaxel",
+        "Silicon Power",
+        "Synology",
+        "TEAM",
+        "Thermaltake",
+        "Timetec",
+        "Transcend",
+        "V-Color",
+        "Wibrand"
+      ]
+    }
+  ],
+  "Дисковые накопители": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "HDD накопитель",
+        "SSD накопитель",
+        "SSD с интерфейсом PCIe 4.0"
+      ]
+    },
+    {
+      "title": "Объем",
+      "options": [
+        "10 ТБ и более",
+        "8 ТБ",
+        "6 ТБ",
+        "5 ТБ",
+        "4 ТБ",
+        "3 ТБ",
+        "2 ТБ",
+        "960-1024 ГБ",
+        "600-800 ГБ",
+        "480-525 ГБ",
+        "300-450 ГБ",
+        "240-280 ГБ",
+        "150-220 ГБ",
+        "120-128 ГБ"
+      ]
+    },
+    {
+      "title": "Разъем подключения",
+      "options": [
+        "SATA rev. 3.0",
+        "M.2 (PCI-E 5.0)",
+        "M.2 (PCI-E 4.0)",
+        "M.2 (PCI-E 3.0)",
+        "SATA (SATA2)"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "Acer",
+        "ADATA",
+        "addlink",
+        "AFOX",
+        "AGI",
+        "AMD",
+        "Angelbird",
+        "Apacer",
+        "ASUS",
+        "ATRIA",
+        "Biostar",
+        "BIWIN",
+        "Corsair",
+        "Crucial",
+        "CUSU",
+        "Dahua Technology",
+        "DataLocker",
+        "DATO",
+        "Emtec",
+        "Fikwot",
+        "FORESEE",
+        "Freecom",
+        "G-Technology",
+        "GameStop",
+        "GIGABYTE",
+        "Gigastone",
+        "Golden Memory",
+        "GOODRAM",
+        "GTL",
+        "HGST",
+        "Hiksemi",
+        "HIKVISION",
+        "Hitachi",
+        "Hotface",
+        "HP",
+        "Innovation IT",
+        "Integral",
+        "Intel",
+        "Intenso",
+        "iStorage",
+        "KingCell",
+        "KingSpec",
+        "Kingston",
+        "Kingston FURY",
+        "Kioxia",
+        "Klevv",
+        "LaCie",
+        "Lexar",
+        "Lite-On",
+        "MediaRange",
+        "Mibrand",
+        "Micron",
+        "MSI",
+        "MyMedia",
+        "Netac",
+        "OCPC",
+        "Orico",
+        "OWC",
+        "PATRIOT",
+        "Philips",
+        "PNY",
+        "Prologix",
+        "Raspberry Pi",
+        "Samsung",
+        "SanDisk",
+        "Seagate",
+        "Silicon Power",
+        "SK hynix",
+        "Solidigm",
+        "SureFire",
+        "Synology",
+        "Tandberg",
+        "TEAM",
+        "Timetec",
+        "Toshiba",
+        "Transcend",
+        "Ubiquiti",
+        "UnionSine",
+        "Verbatim",
+        "WD",
+        "Wibrand",
+        "Xiaomi"
+      ]
+    },
+    {
+      "title": "Тип флеш-памяти NAND",
+      "options": [
+        "MLC",
+        "TLC",
+        "QLC",
+        "3D XPoint"
+      ]
+    },
+    {
+      "title": "Ресурс записи",
+      "options": [
+        "2000 TBW и более",
+        "1500-1999 TBW",
+        "1000-1499 TBW",
+        "750-999 TBW",
+        "500-749 TBW",
+        "250-499 TBW",
+        "249 TBW и менее"
+      ]
+    },
+    {
+      "title": "Форм-фактор",
+      "options": [
+        "M.2 22110",
+        "M.2 2280",
+        "M.2 2260",
+        "M.2 2242",
+        "M.2 2230",
+        "2,5\"",
+        "3,5\""
+      ]
+    },
+    {
+      "title": "Максимальная скорость чтения",
+      "options": [
+        "14000 МБ/с и более",
+        "12000-13999 МБ/с",
+        "10000-11999 МБ/с",
+        "8000-9999 МБ/с",
+        "7000-7999 МБ/с",
+        "5500-6999 МБ/с",
+        "4000-5499 МБ/с",
+        "3000-3999 МБ/с",
+        "2000-2999 МБ/с",
+        "1500-1999 МБ/с",
+        "600-1499 МБ/с",
+        "599 МБ/с и менее"
+      ]
+    },
+    {
+      "title": "Максимальная скорость записи",
+      "options": [
+        "13000 МБ/с и более",
+        "10000-12999 МБ/с",
+        "8000-9999 МБ/с",
+        "6000-7999 МБ/с",
+        "5500-5999 МБ/с",
+        "4000-5499 МБ/с",
+        "3000-3999 МБ/с",
+        "2000-2999 МБ/с",
+        "1000-1999 МБ/с",
+        "560-999 МБ/с",
+        "500-559 МБ/с",
+        "499 МБ/с и менее"
+      ]
+    }
+  ],
+  "Корпуса": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Корпус с предустановленными вентиляторами",
+        "Компактный Mini ITX корпус",
+        "Корпус с окном из закаленного стекла"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "1STPLAYER",
+        "be quiet!",
+        "Cougar",
+        "Deepcool",
+        "Fractal Design",
+        "GameMax",
+        "Jonsbo",
+        "Lian Li",
+        "Montech",
+        "Vinga",
+        "2E",
+        "ADATA",
+        "Aerocool",
+        "Aigo",
+        "Akasa",
+        "Akyga",
+        "ALmordor",
+        "ALSEYE",
+        "Antec",
+        "APNX",
+        "Arctic",
+        "ASUS",
+        "AZZA",
+        "BitFenix",
+        "Blizzard",
+        "Casecom",
+        "Chenbro",
+        "Chieftec",
+        "Cooler Master",
+        "Corsair",
+        "CSV",
+        "DarkFlash",
+        "Delux",
+        "Endorfy",
+        "Frime",
+        "FrimeCom",
+        "Frontier",
+        "FSP",
+        "FURY",
+        "GAMDIAS",
+        "Gembird",
+        "Genesis",
+        "Geometric Future",
+        "GIGABYTE",
+        "Golden Field",
+        "GTL",
+        "HAVN",
+        "HEXO",
+        "HYTE",
+        "I-BOX",
+        "I-TERRA",
+        "iBOX",
+        "In Win",
+        "Inter-Tech",
+        "JONSPLUS",
+        "Kolink",
+        "KRUX",
+        "LC-Power",
+        "Logic concept",
+        "LogicPower",
+        "Modecom",
+        "Morex",
+        "MSI",
+        "NATEC",
+        "NZXT",
+        "Ocypus",
+        "PCCooler",
+        "Phanteks",
+        "Prologix",
+        "QUBE",
+        "Raijintek",
+        "Razer",
+        "SAMA",
+        "Savio",
+        "Sharkoon",
+        "Silverstone",
+        "Super Flower",
+        "Thermalright",
+        "Thermaltake",
+        "TRYX",
+        "Xigmatek",
+        "XILENCE",
+        "Zalman"
+      ]
+    },
+    {
+      "title": "Максимальный форм-фактор материнской платы",
+      "options": [
+        "ATX",
+        "microATX",
+        "Mini-ITX",
+        "E-ATX",
+        "XL-ATX",
+        "CEB"
+      ]
+    },
+    {
+      "title": "Типоразмер",
+      "options": [
+        "Midi-Tower",
+        "Mini (Micro)-Tower",
+        "Full-Tower",
+        "Cube",
+        "Desktop",
+        "Rackmount"
+      ]
+    },
+    {
+      "title": "Расположение БП",
+      "options": [
+        "снизу",
+        "сверху",
+        "за передней панелью",
+        "внешний"
+      ]
+    },
+    {
+      "title": "Высота процессорного кулера",
+      "options": [
+        "181 мм и более",
+        "171-180 мм",
+        "161-170 мм",
+        "151-160 мм",
+        "141-150 мм",
+        "140 мм и менее"
+      ]
+    }
+  ],
+  "Системы охлаждения": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "Водяное охлаждение для Intel 1700/AMD AM5",
+        "Воздушный кулер для Intel 1700/AMD AM5",
+        "Вентиляторы с подсветкой"
+      ]
+    },
+    {
+      "title": "Размер вентилятора",
+      "options": [
+        "150 мм и более",
+        "140 мм",
+        "135 мм",
+        "130 мм",
+        "120 мм",
+        "100 мм",
+        "95 мм",
+        "92 мм",
+        "90 мм",
+        "80 мм",
+        "70 мм",
+        "60 мм",
+        "50 мм",
+        "40 мм"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "Arctic",
+        "ASUS",
+        "be quiet!",
+        "Deepcool",
+        "ID-COOLING",
+        "Jonsbo",
+        "Lian Li",
+        "Noctua",
+        "PCCooler",
+        "Thermalright",
+        "1STPLAYER",
+        "2E",
+        "ADATA",
+        "Aerocool",
+        "Aigo",
+        "Akasa",
+        "Alpenfoehn",
+        "Alphacool",
+        "ALSEYE",
+        "AMD",
+        "Antec",
+        "APNX",
+        "Argus",
+        "ASRock",
+        "ATcom",
+        "AXAGON",
+        "AZZA",
+        "Bitspower",
+        "Brushless",
+        "Chieftec",
+        "Cooler Master",
+        "Cooling Baby",
+        "Coolmoon",
+        "Corsair",
+        "Cougar",
+        "Crown",
+        "DarkFlash",
+        "Dynatron",
+        "EKWB",
+        "Endorfy",
+        "Enermax",
+        "Fractal Design",
+        "Frime",
+        "FrimeCom",
+        "FSP",
+        "GAMDIAS",
+        "GameMax",
+        "GELID Solutions",
+        "Gembird",
+        "Genesis",
+        "GIGABYTE",
+        "GlacialTech",
+        "Golden Field",
+        "GTL",
+        "HYTE",
+        "Iceberg Thermal",
+        "IceGiant",
+        "Intel",
+        "Inter-Tech",
+        "KRUX",
+        "LC-Power",
+        "Lexar",
+        "Merlion",
+        "Montech",
+        "MSI",
+        "Noiseblocker",
+        "NZXT",
+        "OCPC",
+        "Ocypus",
+        "Phanteks",
+        "QUBE",
+        "Razer",
+        "Revoltec",
+        "SAMA",
+        "Scythe",
+        "SeaSonic",
+        "Sharkoon",
+        "SilentiumPC",
+        "Silverstone",
+        "Snowman",
+        "SRHX",
+        "Super Flower",
+        "Thermaltake",
+        "Titan",
+        "TRYX",
+        "Upsiren",
+        "Vinga",
+        "XILENCE",
+        "Zalman",
+        "Zezzio"
+      ]
+    },
+    {
+      "title": "Назначение",
+      "options": [
+        "для процессора",
+        "для корпуса"
+      ]
+    },
+    {
+      "title": "Процессорная совместимость",
+      "options": [
+        "Socket 1700, 1851",
+        "Socket 1200, 115x",
+        "Socket 3647",
+        "Socket 2066, 2011",
+        "Socket 1366",
+        "Socket 775",
+        "Socket AM5",
+        "Socket TR4/SP3"
+      ]
+    },
+    {
+      "title": "Тип",
+      "options": [
+        "водяное охлаждение",
+        "воздушное охлаждение",
+        "вентилятор"
+      ]
+    },
+    {
+      "title": "Рассеиваемая мощность кулера (TDP)",
+      "options": [
+        "350 Вт и более",
+        "280-349 Вт",
+        "220-279 Вт",
+        "170-219 Вт",
+        "130-169 Вт",
+        "90-129 Вт",
+        "70-89 Вт",
+        "69 Вт и менее"
+      ]
+    },
+    {
+      "title": "Количество вентиляторов",
+      "options": [
+        "4 и более",
+        "3",
+        "2",
+        "1"
+      ]
+    }
+  ],
+  "Блоки питания": [
+    {
+      "title": "Подкатегории",
+      "options": [
+        "1600 Вт и более",
+        "80 PLUS Titanium",
+        "ATX"
+      ]
+    },
+    {
+      "title": "Мощность",
+      "options": [
+        "1600 Вт и более",
+        "1200-1599 Вт",
+        "1000-1199 Вт",
+        "800-999 Вт",
+        "700-799 Вт",
+        "600-699 Вт",
+        "500-599 Вт",
+        "400-499 Вт",
+        "399 Вт и менее"
+      ]
+    },
+    {
+      "title": "Бренд",
+      "options": [
+        "ASUS",
+        "be quiet!",
+        "Chieftec",
+        "Corsair",
+        "Deepcool",
+        "GameMax",
+        "GIGABYTE",
+        "MSI",
+        "SeaSonic",
+        "Super Flower",
+        "1StCharger",
+        "1stCOOL",
+        "1STPLAYER",
+        "2E",
+        "ADATA",
+        "Aerocool",
+        "Aigo",
+        "Akyga",
+        "ALmordor",
+        "APNX",
+        "Aqirys",
+        "ASRock",
+        "AZZA",
+        "Casecom",
+        "Chieftronic",
+        "Comstars",
+        "Cooler Master",
+        "Cougar",
+        "Delux",
+        "Endorfy",
+        "Enermax",
+        "EVGA",
+        "Evolveo",
+        "Fractal Design",
+        "Frime",
+        "FrimeCom",
+        "FSP",
+        "GAMDIAS",
+        "Gamer Storm",
+        "Gembird",
+        "Golden Field",
+        "GreatWall",
+        "GTL",
+        "High Power",
+        "iBOX",
+        "Inter-Tech",
+        "Kenweiipc",
+        "LC-Power",
+        "Lian Li",
+        "LogicPower",
+        "Modecom",
+        "Montech",
+        "NZXT",
+        "OCZ",
+        "PCCooler",
+        "Phanteks",
+        "PREYON",
+        "Prologix",
+        "Qdion",
+        "Qoltec",
+        "QUBE",
+        "Rebeltec",
+        "Redragon",
+        "Rosewill",
+        "SAMA",
+        "Sharkoon",
+        "Silverstone",
+        "Spire",
+        "Tecnoware",
+        "Thermalright",
+        "Thermaltake",
+        "Vinga",
+        "XILENCE",
+        "Zalman"
+      ]
+    },
+    {
+      "title": "Стандарт",
+      "options": [
+        "80 PLUS Titanium",
+        "80 PLUS Platinum",
+        "80 PLUS Gold",
+        "80 PLUS Silver",
+        "80 PLUS Bronze",
+        "80 PLUS"
+      ]
+    },
+    {
+      "title": "Форм-фактор",
+      "options": [
+        "ATX",
+        "SFX",
+        "SFX-L",
+        "Flex ATX",
+        "TFX"
+      ]
+    },
+    {
+      "title": "Тип разъемов питания для видеокарт",
+      "options": [
+        "16pin (12VHPWR, 12V-2x6)",
+        "6+2pin, 8pin",
+        "6pin"
+      ]
+    },
+    {
+      "title": "Модульность",
+      "options": [
+        "модульный",
+        "полумодульный",
+        "немодульный"
+      ]
+    },
+    {
+      "title": "Тип разъема подключения питания процессора",
+      "options": [
+        "3x4+4pin",
+        "2x4+4pin",
+        "1x4+4pin",
+        "1x4pin"
+      ]
+    }
+  ]
+}

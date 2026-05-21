@@ -23,6 +23,7 @@ namespace Frame.BusinessLogic.Services
             var products = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
+                .Include(p => p.Images)
                 .Include(p => p.AttributeValues)
                     .ThenInclude(av => av.Attribute)
                 .ToListAsync();
@@ -35,6 +36,7 @@ namespace Frame.BusinessLogic.Services
             var product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
+                .Include(p => p.Images)
                 .Include(p => p.AttributeValues)
                     .ThenInclude(av => av.Attribute)
                 .FirstOrDefaultAsync(p => p.Id == id);
@@ -95,11 +97,20 @@ namespace Frame.BusinessLogic.Services
         {
             var product = await _context.Products
                 .Include(p => p.AttributeValues)
+                .Include(p => p.Images)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (product == null) return false;
-
             _mapper.Map(updateProductDto, product);
+
+            var category = await _context.Categories.FirstOrDefaultAsync(c => c.Name == updateProductDto.CategoryName);
+            if (category == null)
+            {
+                category = new Category { Name = updateProductDto.CategoryName };
+                _context.Categories.Add(category);
+                await _context.SaveChangesAsync();
+            }
+            product.CategoryId = category.Id;
 
             // Удаляем старые атрибуты и записываем новые
             _context.ProductAttributeValues.RemoveRange(product.AttributeValues);
@@ -112,6 +123,14 @@ namespace Frame.BusinessLogic.Services
                     AttributeId = attr.AttributeId,
                     Value = attr.Value
                 });
+            }
+
+            // Удаляем старые изображения и записываем новые
+            _context.ProductImages.RemoveRange(product.Images);
+            product.Images.Clear();
+            foreach (var imgUrl in updateProductDto.Images)
+            {
+                product.Images.Add(new ProductImage { Url = imgUrl });
             }
 
             await _context.SaveChangesAsync();
@@ -132,12 +151,17 @@ namespace Frame.BusinessLogic.Services
         {
             var query = _context.Products
                 .Include(p => p.Category)
+                .Include(p => p.Brand)
+                .Include(p => p.Images)
                 .Include(p => p.AttributeValues)
                     .ThenInclude(av => av.Attribute)
                 .AsQueryable();
 
             if (filter.CategoryId.HasValue)
                 query = query.Where(p => p.CategoryId == filter.CategoryId.Value);
+
+            if (!string.IsNullOrWhiteSpace(filter.CategoryName))
+                query = query.Where(p => p.Category.Name == filter.CategoryName);
 
             if (filter.MinPrice.HasValue)
                 query = query.Where(p => p.Price >= filter.MinPrice.Value);
@@ -150,6 +174,25 @@ namespace Frame.BusinessLogic.Services
 
             if (!string.IsNullOrWhiteSpace(filter.SearchTerm))
                 query = query.Where(p => p.Name.Contains(filter.SearchTerm));
+
+            if (filter.Attributes != null && filter.Attributes.Any())
+            {
+                var attributeGroups = filter.Attributes
+                    .Select(a => {
+                        var parts = a.Split(':', 2);
+                        return new { AttrId = int.Parse(parts[0]), Value = parts[1] };
+                    })
+                    .GroupBy(x => x.AttrId)
+                    .ToList();
+
+                foreach (var group in attributeGroups)
+                {
+                    var attrId = group.Key;
+                    var allowedValues = group.Select(g => g.Value).ToList();
+                    
+                    query = query.Where(p => p.AttributeValues.Any(av => av.AttributeId == attrId && allowedValues.Contains(av.Value)));
+                }
+            }
 
             var products = await query.ToListAsync();
             return _mapper.Map<List<ProductDto>>(products);

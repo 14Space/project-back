@@ -7,5 +7,6 @@ namespace Frame.Domain.Entities
         // Foreign key to Category – determines which category this attribute belongs to
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+        public string? Options { get; set; }
     }
 }

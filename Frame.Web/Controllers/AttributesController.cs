@@ -1,4 +1,4 @@
-﻿using Frame.DataAccess;
+using Frame.DataAccess;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,17 +19,30 @@ namespace Frame.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> GetAttributes()
+        public async Task<IActionResult> GetAttributes([FromQuery] int? categoryId)
         {
-            var attributes = await _context.Attributes
-                .Select(a => new { a.Id, a.Name })
-                .ToListAsync();
-            return Ok(attributes);
+            var query = _context.Attributes.AsQueryable();
+            if (categoryId.HasValue)
+            {
+                query = query.Where(a => a.CategoryId == categoryId.Value);
+            }
+            var attributes = await query.ToListAsync();
+            var result = attributes.Select(a => new {
+                a.Id,
+                a.Name,
+                a.CategoryId,
+                Options = string.IsNullOrEmpty(a.Options) 
+                    ? new List<string>() 
+                    : System.Text.Json.JsonSerializer.Deserialize<List<string>>(a.Options, (System.Text.Json.JsonSerializerOptions?)null)
+            });
+            return Ok(result);
         }
 
         public class CreateAttributeDto
         {
             public string Name { get; set; } = string.Empty;
+            public int? CategoryId { get; set; }
+            public List<string>? Options { get; set; }
         }
 
         [HttpPost]
@@ -37,10 +50,20 @@ namespace Frame.Web.Controllers
         public async Task<IActionResult> CreateAttribute([FromBody] CreateAttributeDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.Name)) return BadRequest("Name is required");
-            var attr = new Frame.Domain.Entities.Attribute { Name = dto.Name };
+            var attr = new Frame.Domain.Entities.Attribute 
+            { 
+                Name = dto.Name,
+                CategoryId = dto.CategoryId,
+                Options = dto.Options != null ? System.Text.Json.JsonSerializer.Serialize(dto.Options) : "[]"
+            };
             _context.Attributes.Add(attr);
             await _context.SaveChangesAsync();
-            return Ok(new { attr.Id, attr.Name });
+            return Ok(new { 
+                attr.Id, 
+                attr.Name, 
+                attr.CategoryId, 
+                Options = dto.Options ?? new List<string>() 
+            });
         }
 
         [HttpPut("{id}")]
@@ -51,8 +74,20 @@ namespace Frame.Web.Controllers
             var attr = await _context.Attributes.FindAsync(id);
             if (attr == null) return NotFound();
             attr.Name = dto.Name;
+            attr.CategoryId = dto.CategoryId;
+            if (dto.Options != null)
+            {
+                attr.Options = System.Text.Json.JsonSerializer.Serialize(dto.Options);
+            }
             await _context.SaveChangesAsync();
-            return Ok(new { attr.Id, attr.Name });
+            return Ok(new { 
+                attr.Id, 
+                attr.Name, 
+                attr.CategoryId, 
+                Options = dto.Options ?? (string.IsNullOrEmpty(attr.Options) 
+                    ? new List<string>() 
+                    : System.Text.Json.JsonSerializer.Deserialize<List<string>>(attr.Options, (System.Text.Json.JsonSerializerOptions?)null)) 
+            });
         }
 
         [HttpDelete("{id}")]
