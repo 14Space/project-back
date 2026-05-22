@@ -224,6 +224,7 @@ using (var scope = app.Services.CreateScope())
             context.SaveChanges();
             var dbCategories = context.Categories.ToList();
             
+            int order = 0;
             foreach (var categoryProp in doc.RootElement.EnumerateObject())
             {
                 var categoryName = categoryProp.Name;
@@ -247,6 +248,7 @@ using (var scope = app.Services.CreateScope())
                     // Skip filters with no options
                     if (optionsList.Count == 0) continue;
                     
+                    var orderValue = filterObj.TryGetProperty("order", out var orderProp) ? orderProp.GetInt32() : order++;
                     var serializedOptions = System.Text.Json.JsonSerializer.Serialize(optionsList);
                     
                     // Check if attribute already exists for this category
@@ -259,6 +261,7 @@ using (var scope = app.Services.CreateScope())
                         {
                             globalAttr.CategoryId = dbCat.Id;
                             globalAttr.Options = serializedOptions;
+                            globalAttr.Order = orderValue;
                         }
                         else
                         {
@@ -266,14 +269,16 @@ using (var scope = app.Services.CreateScope())
                             {
                                 Name = title,
                                 CategoryId = dbCat.Id,
-                                Options = serializedOptions
+                                Options = serializedOptions,
+                                Order = order++
                             });
                         }
                     }
                     else
                     {
-                        // Always update options from the source of truth (extracted_options.json)
+                        // Always update options AND order from the source of truth (extracted_options.json)
                         existingAttr.Options = serializedOptions;
+                        existingAttr.Order = orderValue;
                     }
                 }
             }
