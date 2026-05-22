@@ -8,5 +8,6 @@ namespace Frame.Domain.Entities
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
         public string? Options { get; set; }
+        public int Order { get; set; }
     }
 }
