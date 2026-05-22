@@ -1,514 +1,539 @@
 {
-      {
   "Компьютеры": [
     {
-      "title": "Подкатегории",
+      "title": "Подкатегории / Subcategories",
       "order": 1,
       "options": [
-        "Игровые",
-        "Мини-ПК",
-        "Моноблоки",
-        "Рабочие станции"
+        "Игровые / Gaming",
+        "Мини-ПК / Mini PC",
+        "Моноблоки / All-in-One",
+        "Рабочие станции / Workstations"
       ]
     },
     {
-      "title": "Производители",
+      "title": "Производители / Manufacturers",
       "order": 2,
       "options": [
-        "Acer",
-        "Apple",
-        "ASUS",
-        "Lenovo"
+        "Acer / Acer",
+        "Apple / Apple",
+        "ASUS / ASUS",
+        "Lenovo / Lenovo"
       ]
     },
     {
-      "title": "Процессор",
+      "title": "Процессор / Processor",
       "order": 3,
       "options": [
-        "Intel (все модели)",
-        "AMD (все модели)",
-        "Apple (все модели)",
-        "Apple M4",
-        "Apple M4 Pro",
-        "Apple M4 Max",
-        "Intel Core Ultra 9 2xx",
-        "Intel Core Ultra 7 2xx",
-        "Intel Core Ultra 5 2xx",
-        "Intel Xeon",
-        "AMD Ryzen 9 9xxx",
-        "AMD Ryzen 7 9xxx",
-        "AMD Ryzen 5 9xxx",
-        "AMD Ryzen AI 3xx",
-        "AMD Threadripper",
-        "AMD EPYC"
+        "Intel (все модели) / Intel (all models)",
+        "AMD (все модели) / AMD (all models)",
+        "Apple (все модели) / Apple (all models)",
+        "Apple M4 / Apple M4",
+        "Apple M4 Pro / Apple M4 Pro",
+        "Apple M4 Max / Apple M4 Max",
+        "Intel Core Ultra 9 2xx / Intel Core Ultra 9 2xx",
+        "Intel Core Ultra 7 2xx / Intel Core Ultra 7 2xx",
+        "Intel Core Ultra 5 2xx / Intel Core Ultra 5 2xx",
+        "Intel Xeon / Intel Xeon",
+        "AMD Ryzen 9 9xxx / AMD Ryzen 9 9xxx",
+        "AMD Ryzen 7 9xxx / AMD Ryzen 7 9xxx",
+        "AMD Ryzen 5 9xxx / AMD Ryzen 5 9xxx",
+        "AMD Ryzen AI 3xx / AMD Ryzen AI 3xx",
+        "AMD Threadripper / AMD Threadripper",
+        "AMD EPYC / AMD EPYC"
       ]
     },
     {
-      "title": "Видеокарта",
+      "title": "Видеокарта / Graphics Card",
       "order": 4,
       "options": [
-        "NVIDIA (все модели)",
-        "AMD (все модели)",
-        "NVIDIA GeForce RTX 5090",
-        "NVIDIA GeForce RTX 5080",
-        "NVIDIA GeForce RTX 5070 Ti",
-        "NVIDIA GeForce RTX 5070",
-        "NVIDIA GeForce RTX 5060 Ti",
-        "NVIDIA GeForce RTX 5060",
-        "NVIDIA GeForce RTX 5050",
-        "NVIDIA RTX PRO",
-        "AMD Radeon RX 9070 XT",
-        "AMD Radeon RX 9070",
-        "AMD Radeon RX 9060 XT"
+        "NVIDIA (все модели) / NVIDIA (all models)",
+        "AMD (все модели) / AMD (all models)",
+        "NVIDIA GeForce RTX 5090 / NVIDIA GeForce RTX 5090",
+        "NVIDIA GeForce RTX 5080 / NVIDIA GeForce RTX 5080",
+        "NVIDIA GeForce RTX 5070 Ti / NVIDIA GeForce RTX 5070 Ti",
+        "NVIDIA GeForce RTX 5070 / NVIDIA GeForce RTX 5070",
+        "NVIDIA GeForce RTX 5060 Ti / NVIDIA GeForce RTX 5060 Ti",
+        "NVIDIA GeForce RTX 5060 / NVIDIA GeForce RTX 5060",
+        "NVIDIA GeForce RTX 5050 / NVIDIA GeForce RTX 5050",
+        "NVIDIA RTX PRO / NVIDIA RTX PRO",
+        "AMD Radeon RX 9070 XT / AMD Radeon RX 9070 XT",
+        "AMD Radeon RX 9070 / AMD Radeon RX 9070",
+        "AMD Radeon RX 9060 XT / AMD Radeon RX 9060 XT"
       ]
     },
     {
-      "title": "Объём памяти видеоадаптера",
+      "title": "Объём памяти видеоадаптера / VRAM Capacity",
       "order": 5,
       "options": [
-        "24 ГБ и более",
-        "20 ГБ",
-        "16 ГБ",
-        "12 ГБ",
-        "10 ГБ",
-        "8 ГБ",
-        "6 ГБ"
+        "24 ГБ и более / 24 GB and more",
+        "20 ГБ / 20 GB",
+        "16 ГБ / 16 GB",
+        "12 ГБ / 12 GB",
+        "10 ГБ / 10 GB",
+        "8 ГБ / 8 GB",
+        "6 ГБ / 6 GB"
       ]
     },
     {
-      "title": "Объём оперативной памяти",
+      "title": "Объём оперативной памяти / RAM Capacity",
       "order": 6,
       "options": [
-        "128 ГБ и более",
-        "96 ГБ",
-        "64 ГБ",
-        "48 ГБ",
-        "32 ГБ",
-        "24 ГБ",
-        "16 ГБ"
+        "128 ГБ и более / 128 GB and more",
+        "96 ГБ / 96 GB",
+        "64 ГБ / 64 GB",
+        "48 ГБ / 48 GB",
+        "32 ГБ / 32 GB",
+        "24 ГБ / 24 GB",
+        "16 ГБ / 16 GB"
       ]
     },
     {
-      "title": "Тип оперативной памяти",
+      "title": "Тип оперативной памяти / RAM Type",
       "order": 7,
       "options": [
-        "DDR5",
-        "DDR4"
+        "DDR5 / DDR5",
+        "DDR4 / DDR4"
       ]
     },
     {
-      "title": "Объём SSD",
+      "title": "Объём SSD / SSD Capacity",
       "order": 8,
       "options": [
-        "4000 ГБ и более",
-        "2000-4000 ГБ",
-        "960-1024 ГБ",
-        "480-512 ГБ",
-        "240-256 ГБ"
+        "4000 ГБ и более / 4000 GB and more",
+        "2000-4000 ГБ / 2000-4000 GB",
+        "960-1024 ГБ / 960-1024 GB",
+        "480-512 ГБ / 480-512 GB",
+        "240-256 ГБ / 240-256 GB"
       ]
     },
     {
-      "title": "Объём HDD",
+      "title": "Объём HDD / HDD Capacity",
       "order": 9,
       "options": [
-        "3000 ГБ и более",
-        "2000 ГБ",
-        "1000 ГБ",
-        "500 ГБ"
+        "3000 ГБ и более / 3000 GB and more",
+        "2000 ГБ / 2000 GB",
+        "1000 ГБ / 1000 GB",
+        "500 ГБ / 500 GB"
       ]
     },
     {
-      "title": "Предустановленная ОС",
+      "title": "Предустановленная ОС / Pre-installed OS",
       "order": 10,
       "options": [
-        "Windows 11",
-        "Mac OS",
-        "Linux",
-        "Без ОС"
+        "Windows 11 / Windows 11",
+        "Mac OS / Mac OS",
+        "Linux / Linux",
+        "Без ОС / No OS"
       ]
     }
   ],
   "Ноутбуки": [
     {
-      "title": "Подкатегории",
+      "title": "Подкатегории / Subcategories",
+      "order": 1,
       "options": [
-        "Игровые",
-        "Для учёбы",
-        "MacBook"
-      ]
-    }
-  ]
-},
-    {
-      "title": "Производители",
-      "options": [
-        "Apple",
-        "ASUS",
-        "Lenovo"
+        "Игровые / Gaming",
+        "Для учёбы / For Study",
+        "MacBook / MacBook"
       ]
     },
     {
-      "title": "Процессор",
+      "title": "Производители / Manufacturers",
+      "order": 2,
       "options": [
-        "Intel (все модели)",
-        "AMD (все модели)",
-        "Apple (все модели)",
-        "Apple M5",
-        "Apple M5 Pro",
-        "Apple M5 Max",
-        "Apple A18 Pro",
-        "Intel Core Ultra 9 Series 3",
-        "Intel Core Ultra 7 Series 3",
-        "AMD Ryzen 9 9xxx",
-        "AMD Ryzen 7 9xxx",
-        "AMD Ryzen AI Max",
-        "AMD Ryzen AI 9 4xx",
-        "AMD Ryzen AI 7 4xx",
-        "AMD Ryzen AI 5 4xx"
+        "Acer / Acer",
+        "Apple / Apple",
+        "ASUS / ASUS",
+        "Lenovo / Lenovo"
       ]
     },
     {
-      "title": "Видеокарта",
+      "title": "Диагональ экрана / Screen Diagonal",
+      "order": 3,
       "options": [
-        "NVIDIA GeForce RTX 5090",
-        "NVIDIA GeForce RTX 5080",
-        "NVIDIA GeForce RTX 5070 Ti",
-        "NVIDIA GeForce RTX 5070",
-        "NVIDIA GeForce RTX 5060",
-        "NVIDIA GeForce RTX 5050",
-        "Интегрированная"
+        "18\" и более / 18\" and more",
+        "17\" / 17\"",
+        "16\" / 16\"",
+        "15\" / 15\"",
+        "14\" / 14\"",
+        "13\" / 13\""
       ]
     },
     {
-      "title": "Объём памяти видеоадаптера",
+      "title": "Разрешение экрана / Screen Resolution",
+      "order": 4,
       "options": [
-        "24 ГБ и более",
-        "16 ГБ",
-        "12 ГБ",
-        "10 ГБ",
-        "8 ГБ",
-        "6 ГБ",
-        "4 ГБ"
+        "4K (3840x2160) / 4K (3840x2160)",
+        "QHD+ (2560x1600) / QHD+ (2560x1600)",
+        "QHD (2560x1440) / QHD (2560x1440)",
+        "FHD+ (1920x1200) / FHD+ (1920x1200)",
+        "FHD (1920x1080) / FHD (1920x1080)"
       ]
     },
     {
-      "title": "Диагональ экрана",
+      "title": "Тип матрицы / Panel Type",
+      "order": 5,
       "options": [
-        "18\" и более",
-        "17\"",
-        "16\"",
-        "15\"",
-        "14\"",
-        "13\""
+        "OLED / OLED",
+        "IPS / IPS",
+        "Mini LED / Mini LED"
       ]
     },
     {
-      "title": "Разрешение экрана",
+      "title": "Частота обновления экрана / Refresh Rate",
+      "order": 6,
       "options": [
-        "4K (3840x2160)",
-        "QHD+ (2560x1600)",
-        "QHD (2560x1440)",
-        "FHD+ (1920x1200)",
-        "FHD (1920x1080)"
+        "240 Гц / 240 Hz",
+        "165 Гц / 165 Hz",
+        "144 Гц / 144 Hz",
+        "120 Гц / 120 Hz",
+        "60 Гц / 60 Hz"
       ]
     },
     {
-      "title": "Тип матрицы",
+      "title": "Процессор / Processor",
+      "order": 7,
       "options": [
-        "OLED",
-        "IPS",
-        "Mini LED"
+        "Intel (все модели) / Intel (all models)",
+        "AMD (все модели) / AMD (all models)",
+        "Apple (все модели) / Apple (all models)",
+        "Apple M5 / Apple M5",
+        "Apple M5 Pro / Apple M5 Pro",
+        "Apple M5 Max / Apple M5 Max",
+        "Apple A18 Pro / Apple A18 Pro",
+        "Intel Core Ultra 9 Series 3 / Intel Core Ultra 9 Series 3",
+        "Intel Core Ultra 7 Series 3 / Intel Core Ultra 7 Series 3",
+        "AMD Ryzen 9 9xxx / AMD Ryzen 9 9xxx",
+        "AMD Ryzen 7 9xxx / AMD Ryzen 7 9xxx",
+        "AMD Ryzen AI Max / AMD Ryzen AI Max",
+        "AMD Ryzen AI 9 4xx / AMD Ryzen AI 9 4xx",
+        "AMD Ryzen AI 7 4xx / AMD Ryzen AI 7 4xx",
+        "AMD Ryzen AI 5 4xx / AMD Ryzen AI 5 4xx"
       ]
     },
     {
-      "title": "Частота обновления экрана",
+      "title": "Видеокарта / Graphics Card",
+      "order": 8,
       "options": [
-        "240 Гц",
-        "165 Гц",
-        "144 Гц",
-        "120 Гц",
-        "60 Гц"
+        "NVIDIA (все модели) / NVIDIA (all models)",
+        "NVIDIA GeForce RTX 5090 / NVIDIA GeForce RTX 5090",
+        "NVIDIA GeForce RTX 5080 / NVIDIA GeForce RTX 5080",
+        "NVIDIA GeForce RTX 5070 Ti / NVIDIA GeForce RTX 5070 Ti",
+        "NVIDIA GeForce RTX 5070 / NVIDIA GeForce RTX 5070",
+        "NVIDIA GeForce RTX 5060 / NVIDIA GeForce RTX 5060",
+        "NVIDIA GeForce RTX 5050 / NVIDIA GeForce RTX 5050",
+        "Интегрированная / Integrated"
       ]
     },
     {
-      "title": "Объём оперативной памяти",
+      "title": "Объём памяти видеоадаптера / VRAM Capacity",
+      "order": 9,
       "options": [
-        "128 ГБ и более",
-        "96 ГБ",
-        "64 ГБ",
-        "48 ГБ",
-        "32 ГБ",
-        "24 ГБ",
-        "16 ГБ",
-        "8 ГБ"
+        "24 ГБ и более / 24 GB and more",
+        "16 ГБ / 16 GB",
+        "12 ГБ / 12 GB",
+        "10 ГБ / 10 GB",
+        "8 ГБ / 8 GB",
+        "6 ГБ / 6 GB",
+        "4 ГБ / 4 GB"
       ]
     },
     {
-      "title": "Тип оперативной памяти",
+      "title": "Объём оперативной памяти / RAM Capacity",
+      "order": 10,
       "options": [
-        "DDR5",
-        "DDR4"
+        "128 ГБ и более / 128 GB and more",
+        "96 ГБ / 96 GB",
+        "64 ГБ / 64 GB",
+        "48 ГБ / 48 GB",
+        "32 ГБ / 32 GB",
+        "24 ГБ / 24 GB",
+        "16 ГБ / 16 GB",
+        "8 ГБ / 8 GB"
       ]
     },
     {
-      "title": "Объём SSD",
+      "title": "Тип оперативной памяти / RAM Type",
+      "order": 11,
       "options": [
-        "2000 ГБ и более",
-        "960-1024 ГБ",
-        "480-512 ГБ",
-        "240-256 ГБ"
+        "DDR5 / DDR5",
+        "DDR4 / DDR4"
       ]
     },
     {
-      "title": "Предустановленная ОС",
+      "title": "Объём SSD / SSD Capacity",
+      "order": 12,
       "options": [
-        "Windows 11",
-        "macOS",
-        "Linux",
-        "Chrome OS",
-        "Без ОС"
+        "2000 ГБ и более / 2000 GB and more",
+        "960-1024 ГБ / 960-1024 GB",
+        "480-512 ГБ / 480-512 GB",
+        "240-256 ГБ / 240-256 GB"
       ]
     },
     {
-      "title": "Масса",
+      "title": "Предустановленная ОС / Pre-installed OS",
+      "order": 13,
       "options": [
-        "до 1.5 кг",
-        "1.5 - 2 кг",
-        "2 - 2.5 кг",
-        "более 2.5 кг"
+        "Windows 11 / Windows 11",
+        "macOS / macOS",
+        "Linux / Linux",
+        "Chrome OS / Chrome OS",
+        "Без ОС / No OS"
+      ]
+    },
+    {
+      "title": "Масса / Weight",
+      "order": 14,
+      "options": [
+        "до 1.5 кг / up to 1.5 kg",
+        "1.5 - 2 кг / 1.5 - 2 kg",
+        "2 - 2.5 кг / 2 - 2.5 kg",
+        "более 2.5 кг / more than 2.5 kg"
       ]
     }
   ],
   "Процессоры": [
     {
-      "title": "Подкатегории",
+      "title": "Подкатегории / Subcategories",
+      "order": 1,
       "options": [
-        "Процессоры AMD с 3D V-Cache",
-        "Производительная iGPU",
-        "Процессор для игровых ПК",
-        "Процессор для рабочих станций"
+        "Процессоры AMD с 3D V-Cache / AMD Processors with 3D V-Cache",
+        "Производительная iGPU / High-performance iGPU",
+        "Процессор для игровых ПК / CPU for Gaming PCs",
+        "Процессор для рабочих станций / CPU for Workstations"
       ]
     },
     {
-      "title": "Марка процессора",
+      "title": "Производители / Manufacturers",
+      "order": 2,
       "options": [
-        "Все AMD",
-        "Все Intel",
-        "Core Ultra 9 2xx",
-        "Core Ultra 7 2xx",
-        "Core Ultra 5 2xx",
-        "Intel Xeon",
-        "Ryzen 9 9xxx",
-        "Ryzen 7 9xxx",
-        "Ryzen 5 9xxx",
-        "Ryzen 7 8xxx",
-        "Ryzen 5 8xxx",
-        "Ryzen Threadripper"
+        "AMD / AMD",
+        "Intel / Intel"
       ]
     },
     {
-      "title": "Тип разъема",
+      "title": "Серия / Series",
+      "order": 3,
       "options": [
-        "Socket 1851",
-        "Socket 1700",
-        "Socket 1200",
-        "Socket 1151-V2",
-        "Socket AM5",
-        "Socket sTR5",
-        "Socket sTRX4",
-        "Socket sWRX8"
+        "Core Ultra 9 2xx / Core Ultra 9 2xx",
+        "Core Ultra 7 2xx / Core Ultra 7 2xx",
+        "Core Ultra 5 2xx / Core Ultra 5 2xx",
+        "Intel Xeon / Intel Xeon",
+        "Ryzen 9 9xxx / Ryzen 9 9xxx",
+        "Ryzen 7 9xxx / Ryzen 7 9xxx",
+        "Ryzen 5 9xxx / Ryzen 5 9xxx",
+        "Ryzen 7 8xxx / Ryzen 7 8xxx",
+        "Ryzen 5 8xxx / Ryzen 5 8xxx",
+        "Ryzen Threadripper / Ryzen Threadripper"
       ]
     },
     {
-      "title": "Общее количество ядер",
+      "title": "Сокет / Socket",
+      "order": 4,
       "options": [
-        "64 и более",
-        "32",
-        "24",
-        "20",
-        "16",
-        "14",
-        "12",
-        "10",
-        "8",
-        "6"
+        "Socket 1851 / Socket 1851",
+        "Socket 1700 / Socket 1700",
+        "Socket 1200 / Socket 1200",
+        "Socket 1151-V2 / Socket 1151-V2",
+        "Socket AM5 / Socket AM5",
+        "Socket sTR5 / Socket sTR5",
+        "Socket sTRX4 / Socket sTRX4",
+        "Socket sWRX8 / Socket sWRX8"
       ]
     },
     {
-      "title": "Интегрированная видеокарта",
+      "title": "Количество ядер / Core Count",
+      "order": 5,
       "options": [
-        "AMD Radeon 780M/760M/740M",
-        "AMD Radeon Graphics",
-        "AMD Radeon Vega",
-        "AMD Radeon R7",
-        "AMD Radeon R5",
-        "Intel Graphics",
-        "Intel HD Graphics 7xx",
-        "Intel HD Graphics 6xx",
-        "нет"
+        "64 и более / 64 and more",
+        "32 / 32",
+        "24 / 24",
+        "20 / 20",
+        "16 / 16",
+        "14 / 14",
+        "12 / 12",
+        "10 / 10",
+        "8 / 8",
+        "6 / 6"
       ]
     },
     {
-      "title": "Кэш-память третьего уровня",
+      "title": "Количество потоков / Thread Count",
+      "order": 6,
       "options": [
-        "256 МБ и более",
-        "128 МБ",
-        "96 МБ",
-        "64 МБ",
-        "32-36 МБ",
-        "20-30 МБ",
-        "16-19 МБ",
-        "15 МБ и менее"
+        "64 и более / 64 and more",
+        "32 / 32",
+        "24 / 24",
+        "20 / 20",
+        "16 / 16",
+        "14 / 14",
+        "12 / 12",
+        "10 / 10",
+        "8 / 8",
+        "6 / 6"
       ]
     },
     {
-      "title": "Модельный год",
+      "title": "Интегрированная видеокарта / Integrated Graphics",
+      "order": 7,
       "options": [
-        "2026",
-        "2025",
-        "2024",
-        "более ранние"
+        "AMD Radeon 780M/760M/740M / AMD Radeon 780M/760M/740M",
+        "AMD Radeon Graphics / AMD Radeon Graphics",
+        "AMD Radeon Vega / AMD Radeon Vega",
+        "AMD Radeon R7 / AMD Radeon R7",
+        "AMD Radeon R5 / AMD Radeon R5",
+        "Intel Graphics / Intel Graphics",
+        "Intel HD Graphics 7xx / Intel HD Graphics 7xx",
+        "Intel HD Graphics 6xx / Intel HD Graphics 6xx",
+        "нет / none"
       ]
     },
     {
-      "title": "Базовое тепловыделение TDP",
+      "title": "L3 Кэш / L3 Cache",
+      "order": 8,
       "options": [
-        "49 Вт и менее",
-        "50-69 Вт",
-        "70-94 Вт",
-        "95-119 Вт",
-        "120 Вт и более"
+        "256 МБ и более / 256 MB and more",
+        "128 МБ / 128 MB",
+        "96 МБ / 96 MB",
+        "64 МБ / 64 MB",
+        "32-36 МБ / 32-36 MB",
+        "20-30 МБ / 20-30 MB",
+        "16-19 МБ / 16-19 MB",
+        "15 МБ и менее / 15 MB and less"
       ]
     },
     {
-      "title": "Комплектация",
+      "title": "Тепловыделение TDP / TDP",
+      "order": 9,
       "options": [
-        "Box",
-        "Tray"
+        "49 Вт и менее / 49 W and less",
+        "50-69 Вт / 50-69 W",
+        "70-94 Вт / 70-94 W",
+        "95-119 Вт / 95-119 W",
+        "120 Вт и более / 120 W and more"
+      ]
+    },
+    {
+      "title": "Комплектация / Package",
+      "order": 10,
+      "options": [
+        "Box / Box",
+        "Tray / Tray"
       ]
     }
   ],
   "Видеокарты": [
     {
-      "title": "Подкатегории",
+      "title": "Подкатегории / Subcategories",
+      "order": 1,
       "options": [
-        "Игровая видеокарта NVIDIA",
-        "Игровая видеокарта AMD",
-        "Профессиональная видеокарта"
+        "Игровая видеокарта NVIDIA / NVIDIA Gaming Graphics Card",
+        "Игровая видеокарта AMD / AMD Gaming Graphics Card",
+        "Профессиональная видеокарта / Professional Graphics Card"
       ]
     },
     {
-      "title": "GPU",
+      "title": "Производители / Manufacturers",
+      "order": 2,
       "options": [
-        "Все AMD",
-        "Все Nvidia",
-        "Nvidia GeForce RTX 5090",
-        "Nvidia GeForce RTX 5080",
-        "Nvidia GeForce RTX 5070 Ti",
-        "Nvidia GeForce RTX 5070",
-        "Nvidia GeForce RTX 5060 Ti",
-        "Nvidia GeForce RTX 5060",
-        "Nvidia GeForce RTX 5050",
-        "NVIDIA RTX 6000 Ada",
-        "NVIDIA RTX 5880 Ada",
-        "NVIDIA RTX 5000 Ada",
-        "NVIDIA RTX 4500 Ada",
-        "Radeon RX 9070 XT",
-        "Radeon RX 9070",
-        "Radeon RX 9060 XT",
-        "Radeon RX 9060",
-        "Radeon Pro W7700",
-        "Radeon Pro W7500"
+        "ASUS / ASUS",
+        "GIGABYTE / GIGABYTE",
+        "INNO3D / INNO3D",
+        "Sapphire / Sapphire",
+        "NVIDIA / NVIDIA"
       ]
     },
     {
-      "title": "Объем памяти",
+      "title": "Серия / Series",
+      "order": 3,
       "options": [
-        "48 ГБ и более",
-        "32 ГБ",
-        "24 ГБ",
-        "20 ГБ",
-        "16 ГБ",
-        "12 ГБ",
-        "10 ГБ",
-        "8 ГБ",
-        "6 ГБ",
-        "4 ГБ",
-        "2 ГБ"
+        "Все AMD / All AMD",
+        "Все Nvidia / All Nvidia",
+        "Nvidia GeForce RTX 5090 / Nvidia GeForce RTX 5090",
+        "Nvidia GeForce RTX 5080 / Nvidia GeForce RTX 5080",
+        "Nvidia GeForce RTX 5070 Ti / Nvidia GeForce RTX 5070 Ti",
+        "Nvidia GeForce RTX 5070 / Nvidia GeForce RTX 5070",
+        "Nvidia GeForce RTX 5060 Ti / Nvidia GeForce RTX 5060 Ti",
+        "Nvidia GeForce RTX 5060 / Nvidia GeForce RTX 5060",
+        "Nvidia GeForce RTX 5050 / Nvidia GeForce RTX 5050",
+        "NVIDIA RTX 6000 Ada / NVIDIA RTX 6000 Ada",
+        "NVIDIA RTX 5880 Ada / NVIDIA RTX 5880 Ada",
+        "NVIDIA RTX 5000 Ada / NVIDIA RTX 5000 Ada",
+        "NVIDIA RTX 4500 Ada / NVIDIA RTX 4500 Ada",
+        "Radeon RX 9070 XT / Radeon RX 9070 XT",
+        "Radeon RX 9070 / Radeon RX 9070",
+        "Radeon RX 9060 XT / Radeon RX 9060 XT",
+        "Radeon RX 9060 / Radeon RX 9060",
+        "Radeon Pro W7700 / Radeon Pro W7700",
+        "Radeon Pro W7500 / Radeon Pro W7500"
       ]
     },
     {
-      "title": "Бренд",
+      "title": "Объём памяти видеоадаптера / VRAM Capacity",
+      "order": 4,
       "options": [
-        "ASUS",
-        "GIGABYTE",
-        "INNO3D",
-        "MSI",
-        "Palit",
-        "PNY",
-        "PowerColor",
-        "Sapphire",
-        "XFX",
-        "Zotac",
-        "Acer",
-        "AFOX",
-        "AMD",
-        "ARKTEK",
-        "ASRock",
-        "Biostar",
-        "Colorful",
-        "Dell",
-        "EVGA",
-        "Gainward",
-        "Golden Memory",
-        "HP",
-        "Intel",
-        "KFA2",
-        "Lenovo",
-        "Manli",
-        "Maxsun",
-        "NVIDIA",
-        "Sparkle"
+        "48 ГБ и более / 48 GB and more",
+        "32 ГБ / 32 GB",
+        "24 ГБ / 24 GB",
+        "20 ГБ / 20 GB",
+        "16 ГБ / 16 GB",
+        "12 ГБ / 12 GB",
+        "10 ГБ / 10 GB",
+        "8 ГБ / 8 GB",
+        "6 ГБ / 6 GB",
+        "4 ГБ / 4 GB",
+        "2 ГБ / 2 GB"
       ]
     },
     {
-      "title": "Шина памяти",
+      "title": "Тип памяти / Memory Type",
+      "order": 5,
       "options": [
-        "512 бит и более",
-        "384 бит",
-        "352 бит",
-        "160 бит",
-        "320 бит",
-        "256 бит",
-        "192 бит",
-        "128 бит",
-        "64 бит"
+        "GDDR7 / GDDR7",
+        "GDDR6X / GDDR6X",
+        "GDDR6 / GDDR6",
+        "GDDR5X / GDDR5X",
+        "GDDR5 / GDDR5",
+        "HBM2 / HBM2"
       ]
     },
     {
-      "title": "Тип памяти",
+      "title": "Шина / Memory Bus",
+      "order": 6,
       "options": [
-        "GDDR7",
-        "GDDR6X",
-        "GDDR6",
-        "GDDR5X",
-        "GDDR5",
-        "HBM2"
+        "512 бит и более / 512 bit and more",
+        "384 бит / 384 bit",
+        "352 бит / 352 bit",
+        "160 бит / 160 bit",
+        "320 бит / 320 bit",
+        "256 бит / 256 bit",
+        "192 бит / 192 bit",
+        "128 бит / 128 bit",
+        "64 бит / 64 bit"
       ]
     },
     {
-      "title": "Длина",
+      "title": "Длина / Length",
+      "order": 7,
       "options": [
-        "149 мм и менее",
-        "150-174 мм",
-        "175-199 мм",
-        "200-229 мм",
-        "230-249 мм",
-        "250-269 мм",
-        "270-279 мм",
-        "280-299 мм",
-        "300-319 мм",
-        "320 мм и более"
+        "149 мм и менее / 149 mm and less",
+        "150-174 мм / 150-174 mm",
+        "175-199 мм / 175-199 mm",
+        "200-229 мм / 200-229 mm",
+        "230-249 мм / 230-249 mm",
+        "250-269 мм / 250-269 mm",
+        "270-279 мм / 270-279 mm",
+        "280-299 мм / 280-299 mm",
+        "300-319 мм / 300-319 mm",
+        "320 мм и более / 320 mm and more"
+      ]
+    },
+    {
+      "title": "Количество вентиляторов / Number of Fans",
+      "order": 8,
+      "options": [
+        "3 и более / 3 and more",
+        "2 / 2"
       ]
     }
   ],

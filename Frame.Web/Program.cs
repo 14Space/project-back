@@ -270,7 +270,7 @@ using (var scope = app.Services.CreateScope())
                                 Name = title,
                                 CategoryId = dbCat.Id,
                                 Options = serializedOptions,
-                                Order = order++
+                                Order = orderValue
                             });
                         }
                     }
@@ -299,128 +299,7 @@ using (var scope = app.Services.CreateScope())
             context.SaveChanges();
         }
 
-        // Seeding 5 Computers
-        var pcCategory = context.Categories.FirstOrDefault(c => c.Name == "Компьютеры");
-        if (pcCategory != null)
-        {
-            var brandAsus = context.Brands.FirstOrDefault(b => b.Name == "ASUS");
-            var brandMsi = context.Brands.FirstOrDefault(b => b.Name == "MSI");
-            var brandHp = context.Brands.FirstOrDefault(b => b.Name == "HP");
-            var brandLenovo = context.Brands.FirstOrDefault(b => b.Name == "Lenovo");
-            var brandApple = context.Brands.FirstOrDefault(b => b.Name == "Apple");
 
-            var pcAttributes = context.Attributes.Where(a => a.CategoryId == pcCategory.Id).ToList();
-
-            var attrSubcat = pcAttributes.FirstOrDefault(a => a.Name == "Подкатегории");
-            var attrCpu = pcAttributes.FirstOrDefault(a => a.Name == "Процессор");
-            var attrGpu = pcAttributes.FirstOrDefault(a => a.Name == "Видеокарта");
-            var attrGpuRam = pcAttributes.FirstOrDefault(a => a.Name == "Объём памяти видеоадаптера");
-            var attrRam = pcAttributes.FirstOrDefault(a => a.Name == "Объём оперативной памяти");
-            var attrRamType = pcAttributes.FirstOrDefault(a => a.Name == "Тип оперативной памяти");
-            var attrSsd = pcAttributes.FirstOrDefault(a => a.Name == "Объём SSD");
-            var attrHdd = pcAttributes.FirstOrDefault(a => a.Name == "Обьём HDD");
-            var attrOs = pcAttributes.FirstOrDefault(a => a.Name == "Предустановленная ОС");
-
-            var attrValues = new List<Frame.Domain.Entities.ProductAttributeValue>();
-
-            void AddValue(Frame.Domain.Entities.Product p, Frame.Domain.Entities.Attribute? attr, string val)
-            {
-                if (attr != null)
-                {
-                    attrValues.Add(new Frame.Domain.Entities.ProductAttributeValue
-                    {
-                        ProductId = p.Id,
-                        AttributeId = attr.Id,
-                        Value = val
-                    });
-                }
-            }
-
-            var seedProducts = new List<(string Name, decimal Price, string Description, string Subcat, int? BrandId, string Img, Action<Frame.Domain.Entities.Product> AddSpecs)>
-            {
-                ("ASUS ROG Strix GA35 Ultimate", 150000.00m, "Мощный игровой компьютер ASUS ROG Strix GA35 с процессором Intel Ultra 9 и видеокартой RTX 5090.", "Игровые", brandAsus?.Id, "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=600&q=80", p => {
-                    AddValue(p, attrSubcat, "Игровые");
-                    AddValue(p, attrCpu, "Intel Core Ultra 9 2xx");
-                    AddValue(p, attrGpu, "NVIDIA GeForce RTX 5090");
-                    AddValue(p, attrGpuRam, "24 ГБ и более");
-                    AddValue(p, attrRam, "64 ГБ");
-                    AddValue(p, attrRamType, "DDR5");
-                    AddValue(p, attrSsd, "2000-4000 ГБ");
-                    AddValue(p, attrHdd, "2000 ГБ");
-                    AddValue(p, attrOs, "Windows 11");
-                }),
-                ("MSI Infinite X2 Gamer", 75000.00m, "Сбалансированный игровой ПК MSI Infinite X2 на базе Ryzen 7 и видеокарты RTX 5070.", "Игровые", brandMsi?.Id, "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80", p => {
-                    AddValue(p, attrSubcat, "Игровые");
-                    AddValue(p, attrCpu, "AMD Ryzen 7 9xxx");
-                    AddValue(p, attrGpu, "NVIDIA GeForce RTX 5070");
-                    AddValue(p, attrGpuRam, "12 ГБ");
-                    AddValue(p, attrRam, "32 ГБ");
-                    AddValue(p, attrRamType, "DDR5");
-                    AddValue(p, attrSsd, "960-1024 ГБ");
-                    AddValue(p, attrHdd, "1000 ГБ");
-                    AddValue(p, attrOs, "Windows 11");
-                }),
-                ("HP ProTower 400 G9 Workstation", 45000.00m, "Надежная рабочая станция HP ProTower для офисных задач, программирования и работы с данными.", "Рабочие станции", brandHp?.Id, "https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?auto=format&fit=crop&w=600&q=80", p => {
-                    AddValue(p, attrSubcat, "Рабочие станции");
-                    AddValue(p, attrCpu, "Intel Core Ultra 5 2xx");
-                    AddValue(p, attrGpu, "NVIDIA GeForce RTX 5050");
-                    AddValue(p, attrGpuRam, "8 ГБ");
-                    AddValue(p, attrRam, "16 ГБ");
-                    AddValue(p, attrRamType, "DDR4");
-                    AddValue(p, attrSsd, "480-512 ГБ");
-                    AddValue(p, attrHdd, "500 ГБ");
-                    AddValue(p, attrOs, "Windows 11");
-                }),
-                ("Lenovo IdeaCentre Mini Gen 8", 35000.00m, "Сверхкомпактный мини-ПК Lenovo IdeaCentre Mini Gen 8 для экономии рабочего пространства.", "Мини-ПК", brandLenovo?.Id, "https://images.unsplash.com/photo-1600541519401-44712e41ef34?auto=format&fit=crop&w=600&q=80", p => {
-                    AddValue(p, attrSubcat, "Мини-ПК");
-                    AddValue(p, attrCpu, "AMD Ryzen 5 9xxx");
-                    AddValue(p, attrGpu, "AMD Radeon RX 9060 XT");
-                    AddValue(p, attrGpuRam, "8 ГБ");
-                    AddValue(p, attrRam, "16 ГБ");
-                    AddValue(p, attrRamType, "DDR5");
-                    AddValue(p, attrSsd, "480-512 ГБ");
-                    AddValue(p, attrHdd, "500 ГБ");
-                    AddValue(p, attrOs, "Linux");
-                }),
-                ("Apple Mac Studio M4 Max", 220000.00m, "Компактный суперкомпьютер Apple Mac Studio M4 Max для профессиональной работы со звуком, видео и графикой.", "Моноблоки", brandApple?.Id, "https://images.unsplash.com/photo-1636408807362-a6195d3dd4de?auto=format&fit=crop&w=600&q=80", p => {
-                    AddValue(p, attrSubcat, "Моноблоки");
-                    AddValue(p, attrCpu, "Apple M4 Max");
-                    AddValue(p, attrGpu, "NVIDIA RTX PRO");
-                    AddValue(p, attrGpuRam, "24 ГБ и более");
-                    AddValue(p, attrRam, "48 ГБ");
-                    AddValue(p, attrRamType, "DDR5");
-                    AddValue(p, attrSsd, "2000-4000 ГБ");
-                    AddValue(p, attrOs, "Mac OS");
-                })
-            };
-
-            foreach (var seed in seedProducts)
-            {
-                if (!context.Products.Any(p => p.Name == seed.Name && p.CategoryId == pcCategory.Id))
-                {
-                    var product = new Frame.Domain.Entities.Product
-                    {
-                        Name = seed.Name,
-                        Price = seed.Price,
-                        Description = seed.Description,
-                        CategoryId = pcCategory.Id,
-                        SubcategoryName = seed.Subcat,
-                        BrandId = seed.BrandId,
-                        Images = new List<Frame.Domain.Entities.ProductImage> { new Frame.Domain.Entities.ProductImage { Url = seed.Img } }
-                    };
-                    context.Products.Add(product);
-                    context.SaveChanges(); // Save to generate product.Id
-
-                    seed.AddSpecs(product);
-                }
-            }
-
-            if (attrValues.Count > 0)
-            {
-                context.ProductAttributeValues.AddRange(attrValues);
-                context.SaveChanges();
-            }
-        }
     }
     catch (Exception ex)
     {
