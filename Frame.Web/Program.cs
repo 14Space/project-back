@@ -38,6 +38,7 @@ builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IFavoriteService, FavoriteService>();
 builder.Services.AddScoped<IFileService>(sp => new FileService());
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IBannerService, BannerService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

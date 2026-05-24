@@ -9,7 +9,9 @@ namespace Frame.BusinessLogic.Profiles
         public ProductProfile()
         {
             CreateMap<CreateProductDto, Product>()
-                .ForMember(dest => dest.BrandId, opt => opt.MapFrom(src => src.BrandId));
+                .ForMember(dest => dest.BrandId, opt => opt.MapFrom(src => src.BrandId))
+                .ForMember(dest => dest.Images, opt => opt.Ignore())
+                .ForMember(dest => dest.AttributeValues, opt => opt.Ignore());
 
             CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name))

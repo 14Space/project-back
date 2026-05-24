@@ -158,7 +158,7 @@ namespace Frame.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> DeleteAttribute(int id)
         {
             var attr = await _context.Attributes.FindAsync(id);

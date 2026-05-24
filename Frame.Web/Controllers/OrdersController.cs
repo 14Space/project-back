@@ -59,6 +59,7 @@ namespace Frame.Web.Controllers
 
             return Ok(orders.Select(o => new {
                 o.Id,
+                o.UserId,
                 Username = o.User.Username,
                 o.OrderDate,
                 o.TotalPrice,
@@ -118,5 +119,25 @@ namespace Frame.Web.Controllers
 
             return Ok(new { Message = "Order created successfully", OrderId = order.Id, TotalPrice = order.TotalPrice });
         }
+
+        [HttpPut("{id}/status")]
+        [Authorize(Roles = "Admin,Manager")]
+        public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] OrderStatusUpdateDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.Status)) return BadRequest("Status is required");
+
+            var order = await _context.Orders.FindAsync(id);
+            if (order == null) return NotFound("Order not found");
+
+            order.Status = dto.Status;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = "Order status updated successfully", Status = order.Status });
+        }
+    }
+
+    public class OrderStatusUpdateDto
+    {
+        public string Status { get; set; }
     }
 }
