@@ -58,6 +58,8 @@ namespace Frame.BusinessLogic.Services
             {
                 Name = createProductDto.Name,
                 Price = createProductDto.Price,
+                OldPrice = createProductDto.OldPrice,
+                Status = createProductDto.Status,
                 Description = createProductDto.Description ?? string.Empty,
                 CategoryId = category.Id,
                 BrandId = createProductDto.BrandId,
