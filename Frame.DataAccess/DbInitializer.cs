@@ -15,24 +15,10 @@ namespace Frame.DataAccess
                 var laptops = new Category { Name = "Ноутбуки"};
                 var parts = new Category { Name = "Комплектующие"};
                 
-                context.Categories.AddRange(computers, laptops, parts);
-                context.SaveChanges();
-
-                var gamingPcs = new Category { Name = "Игровые"};
-                var miniPcs = new Category { Name = "Мини-ПК"};
+                var monitors = new Category { Name = "Мониторы" };
+                var peripherals = new Category { Name = "Периферия" };
                 
-                var macbooks = new Category { Name = "MacBook"};
-                var studyLaptops = new Category { Name = "Для учебы"};
-                
-                var cpus = new Category { Name = "Процессоры"};
-                var gpus = new Category { Name = "Видеокарты"};
-                var motherboards = new Category { Name = "Материнские платы"};
-                var ram = new Category { Name = "Оперативная память"};
-                var storage = new Category { Name = "Накопители"};
-                var powerSupplies = new Category { Name = "Блоки питания"};
-                var cases = new Category { Name = "Корпуса"};
-                
-                context.Categories.AddRange(gamingPcs, miniPcs, macbooks, studyLaptops, cpus, gpus, motherboards, ram, storage, powerSupplies, cases);
+                context.Categories.AddRange(computers, laptops, parts, monitors, peripherals);
                 context.SaveChanges();
             }
 
