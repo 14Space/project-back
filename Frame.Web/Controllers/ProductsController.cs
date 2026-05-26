@@ -1,4 +1,4 @@
-﻿using Frame.BusinessLogic.DTOs;
+using Frame.BusinessLogic.DTOs;
 using Frame.BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -62,7 +62,7 @@ namespace Frame.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _productService.DeleteAsync(id);

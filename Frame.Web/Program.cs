@@ -261,7 +261,17 @@ using (var scope = app.Services.CreateScope())
                         if (globalAttr != null)
                         {
                             globalAttr.CategoryId = dbCat.Id;
-                            globalAttr.Options = serializedOptions;
+                            var globalOptionsList = new List<string>();
+                            if (!string.IsNullOrEmpty(globalAttr.Options))
+                            {
+                                try 
+                                {
+                                    globalOptionsList = System.Text.Json.JsonSerializer.Deserialize<List<string>>(globalAttr.Options) ?? new List<string>();
+                                }
+                                catch { }
+                            }
+                            var mergedGlobalOptions = globalOptionsList.Union(optionsList).Distinct().ToList();
+                            globalAttr.Options = System.Text.Json.JsonSerializer.Serialize(mergedGlobalOptions);
                             globalAttr.Order = orderValue;
                         }
                         else
@@ -277,8 +287,18 @@ using (var scope = app.Services.CreateScope())
                     }
                     else
                     {
-                        // Always update options AND order from the source of truth (extracted_options.json)
-                        existingAttr.Options = serializedOptions;
+                        // Merge options: keep existing options (which might include user-added ones) and add new ones from extracted_options.json
+                        var existingOptionsList = new List<string>();
+                        if (!string.IsNullOrEmpty(existingAttr.Options))
+                        {
+                            try 
+                            {
+                                existingOptionsList = System.Text.Json.JsonSerializer.Deserialize<List<string>>(existingAttr.Options) ?? new List<string>();
+                            }
+                            catch { }
+                        }
+                        var mergedOptions = existingOptionsList.Union(optionsList).Distinct().ToList();
+                        existingAttr.Options = System.Text.Json.JsonSerializer.Serialize(mergedOptions);
                         existingAttr.Order = orderValue;
                     }
                 }
