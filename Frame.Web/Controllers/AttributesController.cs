@@ -85,11 +85,11 @@ namespace Frame.Web.Controllers
                     {
                         if (!string.IsNullOrWhiteSpace(option))
                         {
-                            var trimmedOption = option.Trim();
-                            var brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == trimmedOption.ToLower());
+                            var brandName = option.Trim();
+                            var brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == brandName.ToLower());
                             if (!brandExists)
                             {
-                                _context.Brands.Add(new Frame.Domain.Entities.Brand { Name = trimmedOption });
+                                _context.Brands.Add(new Frame.Domain.Entities.Brand { Name = brandName });
                             }
                         }
                     }
@@ -135,11 +135,11 @@ namespace Frame.Web.Controllers
                     {
                         if (!string.IsNullOrWhiteSpace(option))
                         {
-                            var trimmedOption = option.Trim();
-                            var brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == trimmedOption.ToLower());
+                            var brandName = option.Trim();
+                            var brandExists = await _context.Brands.AnyAsync(b => b.Name.ToLower() == brandName.ToLower());
                             if (!brandExists)
                             {
-                                _context.Brands.Add(new Frame.Domain.Entities.Brand { Name = trimmedOption });
+                                _context.Brands.Add(new Frame.Domain.Entities.Brand { Name = brandName });
                             }
                         }
                     }

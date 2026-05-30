@@ -230,7 +230,13 @@ using (var scope = app.Services.CreateScope())
             {
                 var categoryName = categoryProp.Name;
                 var dbCat = dbCategories.FirstOrDefault(c => c.Name.Equals(categoryName, StringComparison.OrdinalIgnoreCase));
-                if (dbCat == null) continue;
+                if (dbCat == null)
+                {
+                    dbCat = new Frame.Domain.Entities.Category { Name = categoryName };
+                    context.Categories.Add(dbCat);
+                    context.SaveChanges();
+                    dbCategories.Add(dbCat);
+                }
                 
                 foreach (var filterObj in categoryProp.Value.EnumerateArray())
                 {
@@ -248,6 +254,25 @@ using (var scope = app.Services.CreateScope())
                     
                     // Skip filters with no options
                     if (optionsList.Count == 0) continue;
+                    
+                    var titleLower = title.ToLower();
+                    bool isBrandAttribute = titleLower.Contains("бренд") || 
+                                            titleLower.Contains("производител") || 
+                                            titleLower.Contains("brand") || 
+                                            titleLower.Contains("manufactur");
+                    if (isBrandAttribute)
+                    {
+                        foreach (var opt in optionsList)
+                        {
+                            var brandName = opt.Split(" / ")[0].Trim();
+                            bool brandExists = context.Brands.Local.Any(b => b.Name.ToLower() == brandName.ToLower()) || 
+                                               context.Brands.Any(b => b.Name.ToLower() == brandName.ToLower());
+                            if (!brandExists)
+                            {
+                                context.Brands.Add(new Frame.Domain.Entities.Brand { Name = brandName });
+                            }
+                        }
+                    }
                     
                     var orderValue = filterObj.TryGetProperty("order", out var orderProp) ? orderProp.GetInt32() : order++;
                     var serializedOptions = System.Text.Json.JsonSerializer.Serialize(optionsList);
