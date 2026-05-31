@@ -31,6 +31,9 @@ namespace Frame.DataAccess
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
+        // Trade-In
+        public DbSet<TradeInRequest> TradeInRequests { get; set; }
+
         // Home Page
         public DbSet<Banner> Banners { get; set; }
 
@@ -59,6 +62,10 @@ namespace Frame.DataAccess
 
             modelBuilder.Entity<Order>()
                 .Property(o => o.TotalPrice)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<TradeInRequest>()
+                .Property(t => t.OfferAmount)
                 .HasPrecision(18, 2);
 
             base.OnModelCreating(modelBuilder);
