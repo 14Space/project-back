@@ -51,12 +51,14 @@ namespace Frame.Web.Controllers
         [HttpDelete("product/{productId}")]
         public async Task<IActionResult> DeleteByProduct(int productId)
         {
-            var username = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
-            // This is a bit tricky if IFavoriteService doesn't have DeleteByProductAsync
-            // Let's check if we can get the favorites for the user and delete the matching one.
-            var favorites = await _favoriteService.GetByUserIdAsync(int.Parse(User.FindFirstValue("id") ?? "0")); // Wait, do we have an "id" claim? No, only NameIdentifier which is Username.
-            // Actually, we don't know if we have a UserId claim. We might need to add it or fetch the user.
-            return StatusCode(501, "Not Implemented yet");
+            var userIdStr = User.FindFirstValue(System.Security.Claims.ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var favorites = await _favoriteService.GetByUserIdAsync(userId);
+            var toDelete = favorites.FirstOrDefault(f => f.ProductId == productId);
+            if (toDelete == null) return NotFound();
+            var success = await _favoriteService.DeleteAsync(toDelete.Id);
+            if (!success) return NotFound();
+            return NoContent();
         }
     }
 }

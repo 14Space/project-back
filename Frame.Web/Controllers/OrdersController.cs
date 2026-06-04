@@ -26,13 +26,15 @@ namespace Frame.Web.Controllers
         [HttpGet("my")]
         public async Task<IActionResult> GetMyOrders()
         {
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return Unauthorized();
 
             var orders = await _context.Orders
                 .Include(o => o.Items)
                 .ThenInclude(i => i.Product)
+                .ThenInclude(p => p.Images)
                 .Where(o => o.UserId == user.Id)
                 .OrderByDescending(o => o.OrderDate)
                 .ToListAsync();
@@ -42,7 +44,13 @@ namespace Frame.Web.Controllers
                 o.OrderDate,
                 o.TotalPrice,
                 o.Status,
-                Items = o.Items.Select(i => new { i.ProductId, i.Product.Name, i.Quantity, i.Price })
+                Items = o.Items.Select(i => new {
+                    i.ProductId,
+                    i.Product.Name,
+                    i.Quantity,
+                    i.Price,
+                    Image = i.Product.Images.FirstOrDefault() != null ? i.Product.Images.First().Url : (string?)null
+                })
             }));
         }
 
@@ -60,7 +68,6 @@ namespace Frame.Web.Controllers
             return Ok(orders.Select(o => new {
                 o.Id,
                 o.UserId,
-                Username = o.User.Username,
                 o.OrderDate,
                 o.TotalPrice,
                 o.Status,
@@ -76,8 +83,9 @@ namespace Frame.Web.Controllers
                 return BadRequest("No products provided.");
             }
 
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user == null) return Unauthorized();
 
