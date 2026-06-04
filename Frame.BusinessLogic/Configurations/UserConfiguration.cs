@@ -11,11 +11,11 @@ namespace Frame.BusinessLogic.Configurations
         {
             builder.HasKey(u => u.Id);
 
-            builder.Property(u => u.Username)
+            builder.Property(u => u.Name)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.HasIndex(u => u.Username)
+            builder.HasIndex(u => u.Name)
                 .IsUnique();
 
             builder.Property(u => u.Email)

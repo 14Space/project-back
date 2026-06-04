@@ -23,8 +23,9 @@ namespace Frame.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetMyRequests()
         {
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return Unauthorized();
 
             var requests = await _context.TradeInRequests
@@ -56,7 +57,7 @@ namespace Frame.Web.Controllers
                 {
                     r.Id,
                     r.UserId,
-                    Username = r.User.Username,
+                    Username = r.User.Name,
                     r.Category,
                     r.Description,
                     r.Status,
@@ -71,8 +72,9 @@ namespace Frame.Web.Controllers
         [HttpGet("{id}/photos")]
         public async Task<IActionResult> GetRequestPhotos(int id)
         {
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return Unauthorized();
 
             var photosJson = await _context.TradeInRequests
@@ -101,7 +103,7 @@ namespace Frame.Web.Controllers
             {
                 request.Id,
                 request.UserId,
-                Username = request.User.Username,
+                Username = request.User.Name,
                 request.Category,
                 request.Description,
                 Photos = JsonSerializer.Deserialize<List<string>>(request.PhotosJson),
@@ -114,8 +116,9 @@ namespace Frame.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRequest([FromBody] CreateTradeInDto dto)
         {
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return Unauthorized();
 
             var request = new TradeInRequest
@@ -147,8 +150,9 @@ namespace Frame.Web.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRequest(int id, [FromBody] UpdateTradeInDto dto)
         {
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return Unauthorized();
 
             var request = await _context.TradeInRequests.FindAsync(id);
@@ -178,8 +182,9 @@ namespace Frame.Web.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRequest(int id)
         {
-            var username = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null) return Unauthorized();
 
             var request = await _context.TradeInRequests.FindAsync(id);
