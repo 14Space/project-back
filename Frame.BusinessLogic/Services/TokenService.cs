@@ -1,4 +1,4 @@
-﻿using Frame.BusinessLogic.Interfaces;
+using Frame.BusinessLogic.Interfaces;
 using Frame.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -26,7 +26,7 @@ namespace Frame.BusinessLogic.Services
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.Username),
+                new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
                 new Claim(ClaimTypes.Role, user.Role)
             };
 

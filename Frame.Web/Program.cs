@@ -115,17 +115,30 @@ using (var scope = app.Services.CreateScope())
         context.Database.Migrate();
 
         // ─── USERS ───────────────────────────────────────────────────
-        if (!context.Users.Any(u => u.Email == "14t.space@gmail.com"))
+        using var sha256 = System.Security.Cryptography.SHA256.Create();
+        
+        var adminEmail = "14t.space@gmail.com";
+        var adminHash = Convert.ToBase64String(sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Frame-admin")));
+        var adminUser = context.Users.FirstOrDefault(u => u.Email == adminEmail);
+        if (adminUser == null)
         {
-            using var sha256 = System.Security.Cryptography.SHA256.Create();
-            var hash = Convert.ToBase64String(sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes("admin123")));
-            context.Users.Add(new Frame.Domain.Entities.User { Username = "Admin", Email = "14t.space@gmail.com", Role = "Admin", PasswordHash = hash });
+            context.Users.Add(new Frame.Domain.Entities.User { Name = "Admin", Email = adminEmail, Role = "Admin", PasswordHash = adminHash });
         }
-        if (!context.Users.Any(u => u.Email == "m12.claude.green@gmail.com"))
+        else
         {
-            using var sha256 = System.Security.Cryptography.SHA256.Create();
-            var hash = Convert.ToBase64String(sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes("manager123")));
-            context.Users.Add(new Frame.Domain.Entities.User { Username = "Manager", Email = "m12.claude.green@gmail.com", Role = "Manager", PasswordHash = hash });
+            adminUser.PasswordHash = adminHash;
+        }
+
+        var managerEmail = "m12.claude.green@gmail.com";
+        var managerHash = Convert.ToBase64String(sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Frame-manager")));
+        var managerUser = context.Users.FirstOrDefault(u => u.Email == managerEmail);
+        if (managerUser == null)
+        {
+            context.Users.Add(new Frame.Domain.Entities.User { Name = "Manager", Email = managerEmail, Role = "Manager", PasswordHash = managerHash });
+        }
+        else
+        {
+            managerUser.PasswordHash = managerHash;
         }
 
         // ─── CATEGORIES ──────────────────────────────────────────────
